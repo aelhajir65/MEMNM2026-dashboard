@@ -1,0 +1,32 @@
+# =============================================================
+# .gitignore — Repo public Dashboard MEMNM-2026
+# Ne committer QUE index.html + Dashboard_data.js + assets publics
+# =============================================================
+
+# Tous les .xlsx (données sources confidentielles)
+*.xlsx
+*.xlsm
+
+# Tous les drafts Word
+*.docx
+~$*
+
+# Fichiers Python locaux
+*.py
+__pycache__/
+*.pyc
+
+# Fichiers de travail / temporaires
+*.tmp
+*.bak
+*.log
+.DS_Store
+Thumbs.db
+
+# Données privées même si elles arrivent par erreur
+**/Pilotage_*
+**/Inventaire_*
+**/Bibliographie*
+**/_ARCHIVE/
+**/uploads/
+**/MEMNM2026_*

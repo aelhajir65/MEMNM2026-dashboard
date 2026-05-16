@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="clair">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard de pilotage — MEMNM-2026 / IMN-OSC</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* ====== THÈMES ====== */
+:root,[data-theme="clair"]{
+  --primary:#1a2b4a; --primary-l:#2d4373;
+  --accent:#8b1e3f;  --accent2:#c9a647; --sage:#4a7c5f;
+  --bg:#fbf9f4; --card:#ffffff; --ink:#1c1c1c; --muted:#6b7280; --border:#e4ddd0;
+  --crit:#b91c1c; --high:#d97706; --mid:#ca8a04; --low:#15803d; --info:#0369a1;
+  --crit-bg:#fee2e2; --high-bg:#ffedd5; --mid-bg:#fef9c3; --low-bg:#dcfce7; --info-bg:#e0f2fe;
+  --font-h:Georgia,"Times New Roman",serif; --font-b:Georgia,"Times New Roman",serif;
+  --radius:4px; --shadow:0 1px 3px rgba(0,0,0,.06);
+}
+[data-theme="sombre"]{
+  --primary:#7dd3fc; --primary-l:#38bdf8;
+  --accent:#f97316; --accent2:#a78bfa; --sage:#34d399;
+  --bg:#0f172a; --card:#1e293b; --ink:#e2e8f0; --muted:#94a3b8; --border:#334155;
+  --crit:#f87171; --high:#fb923c; --mid:#fbbf24; --low:#4ade80; --info:#60a5fa;
+  --crit-bg:#450a0a; --high-bg:#431407; --mid-bg:#422006; --low-bg:#052e16; --info-bg:#0c2444;
+  --font-h:'Segoe UI',system-ui,sans-serif; --font-b:'Segoe UI',system-ui,sans-serif;
+  --radius:8px; --shadow:0 2px 6px rgba(0,0,0,.4);
+}
+
+/* ====== BASE ====== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--font-b);background:var(--bg);color:var(--ink);line-height:1.5;transition:background .25s,color .25s}
+body{padding:clamp(12px,2vw,24px);max-width:1440px;margin:0 auto}
+
+/* ====== TOOLBAR ====== */
+.toolbar{display:flex;gap:8px;justify-content:flex-end;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;font-family:var(--font-b);font-size:12.5px;font-weight:600;
+  background:var(--card);color:var(--primary);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .15s}
+.btn:hover{background:var(--primary);color:var(--bg);border-color:var(--primary)}
+.btn.print-btn{border-color:var(--accent);color:var(--accent)}
+.btn.print-btn:hover{background:var(--accent);color:#fff}
+.gen-ts{font-size:11px;color:var(--muted);margin-right:auto}
+
+/* ====== HEADER ====== */
+header{border-bottom:3px double var(--primary);padding-bottom:16px;margin-bottom:22px}
+[data-theme="sombre"] header{border-bottom:1px solid var(--border)}
+header h1{font-family:var(--font-h);font-size:clamp(18px,2.5vw,24px);color:var(--primary);font-weight:700}
+header .sub{font-size:12.5px;color:var(--muted);margin-top:4px;font-style:italic}
+[data-theme="sombre"] header .sub{font-style:normal}
+header .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:10px;font-size:11.5px;color:var(--muted)}
+header .meta b{color:var(--accent)}
+
+/* ====== GRIDS ====== */
+.grid{display:grid;gap:16px;margin-bottom:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:1.3fr 1fr}
+.g2eq{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.g3,.g2,.g2eq{grid-template-columns:1fr}}
+@media(min-width:901px) and (max-width:1100px){.g3{grid-template-columns:repeat(2,1fr)}}
+
+/* ====== CARDS ====== */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:clamp(12px,1.5vw,18px);box-shadow:var(--shadow)}
+.card h2{font-family:var(--font-h);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--primary);font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.kpi{text-align:center;padding:6px 0}
+.kpi .big{font-family:var(--font-h);font-size:clamp(26px,3.5vw,40px);font-weight:700;color:var(--primary)}
+.kpi .lbl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.kpi .ctx{font-size:11.5px;color:var(--muted);margin-top:6px;font-style:italic}
+
+/* ====== CHARTS ====== */
+.gauge-wrap{position:relative;height:clamp(130px,16vw,170px)}
+.gauge-label{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--font-h);font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--primary);pointer-events:none;line-height:1}
+.bar-wrap{height:clamp(220px,26vw,270px)}
+.donut-wrap{height:clamp(180px,22vw,220px)}
+
+/* ====== TABLES ====== */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:clamp(11px,1.1vw,12.5px);min-width:500px}
+th{text-align:left;padding:7px 6px;border-bottom:2px solid var(--primary);color:var(--primary);font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
+td{padding:6px 6px;border-bottom:1px solid var(--border);vertical-align:middle}
+td.mono{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+tr.retard td{background:var(--crit-bg)}
+
+/* ====== TAGS ====== */
+.tag{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.4px;white-space:nowrap}
+.t-crit{background:var(--crit-bg);color:var(--crit)}
+.t-high{background:var(--high-bg);color:var(--high)}
+.t-mid{background:var(--mid-bg);color:var(--mid)}
+.t-low{background:var(--low-bg);color:var(--low)}
+.t-info{background:var(--info-bg);color:var(--info)}
+
+/* ====== COUNTERS ====== */
+.counter-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.counter{text-align:center;padding:12px 6px;border-radius:var(--radius)}
+.counter .n{font-family:var(--font-h);font-size:clamp(20px,2.5vw,30px);font-weight:700}
+.counter .n2{font-size:10px;text-transform:uppercase;letter-spacing:.8px;margin-top:3px}
+.c-crit{background:var(--crit-bg);color:var(--crit)}
+.c-high{background:var(--high-bg);color:var(--high)}
+.c-mid{background:var(--mid-bg);color:var(--mid)}
+
+/* ====== PAGES BARS ====== */
+.page-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:11.5px}
+.page-row .name{width:34%;min-width:110px;font-weight:500}
+.page-row .bar{flex:1;position:relative;height:20px;background:var(--border);border-radius:3px;overflow:hidden}
+.page-row .fill{position:absolute;top:0;left:0;bottom:0;border-radius:3px;transition:width .6s}
+.page-row .fill.ok{background:var(--low)}
+.page-row .fill.over{background:var(--accent)}
+.page-row .fill.part{background:var(--accent2)}
+.page-row .fill.none{background:var(--border)}
+.page-row .target-line{position:absolute;top:0;bottom:0;width:2px;background:var(--primary);opacity:.5}
+.page-row .val{width:80px;min-width:80px;text-align:right;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.page-row .val b{color:var(--ink)}
+
+/* ====== HEURES ====== */
+.hour-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:11.5px}
+.hour-row .name{width:42%;min-width:140px}
+.hour-row .bar{flex:1;height:14px;background:var(--border);border-radius:3px;overflow:hidden;position:relative}
+.hour-row .fill-tot{position:absolute;inset:0;background:var(--primary);opacity:.18;border-radius:3px}
+.hour-row .fill-done{position:absolute;top:0;left:0;bottom:0;background:var(--primary);border-radius:3px;transition:width .6s}
+[data-theme="sombre"] .hour-row .fill-done{background:var(--accent)}
+.hour-row .val{width:70px;text-align:right;color:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums}
+.hour-total{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--primary)}
+
+/* ====== JAUGE HEURES (ring) ====== */
+.hour-gauge-wrap{display:flex;align-items:center;gap:24px;padding:14px 0 10px;border-bottom:1px solid var(--border);margin-bottom:14px}
+.h-ring{position:relative;width:110px;height:110px;flex-shrink:0}
+.h-ring svg{transform:rotate(-90deg)}
+.h-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.h-ring-pct{font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--primary)}
+.h-ring-sub{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.h-ring-stats{flex:1}
+.h-ring-stats .row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
+.h-ring-stats .row:last-child{border-bottom:none}
+.h-ring-stats .lbl{color:var(--muted)}
+.h-ring-stats .val{font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ====== EAC ====== */
+.eac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.eac-kpi{text-align:center;padding:8px 4px;border:1px solid var(--border);border-radius:var(--radius)}
+.eac-kpi .num{font-size:1.3rem;font-weight:700;color:var(--primary)}
+.eac-kpi .lbl{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.hyp{display:inline-block;padding:3px 9px;border-radius:3px;font-size:10.5px;font-weight:700;margin:2px}
+.hyp.conf{background:var(--low-bg);color:var(--low)}
+.hyp.part{background:var(--mid-bg);color:var(--mid)}
+.grad-row{display:flex;gap:4px;align-items:flex-end;height:48px;margin:10px 0 4px}
+.grad-bar{flex:1;border-radius:3px 3px 0 0;background:var(--primary);min-height:4px;transition:height .4s}
+[data-theme="sombre"] .grad-bar{background:var(--accent)}
+.grad-lbl{display:flex;gap:4px;font-size:9.5px;color:var(--muted)}
+.grad-lbl span{flex:1;text-align:center}
+
+/* ====== MOYENNE BADGE ====== */
+.moy-badge{display:inline-flex;align-items:center;gap:8px;background:var(--info-bg);color:var(--info);
+  padding:6px 14px;border-radius:var(--radius);font-size:12px;font-weight:700;margin-top:10px}
+
+/* ====== CALENDRIER ====== */
+.cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cal-nav button{background:none;border:1px solid var(--border);color:var(--primary);padding:4px 12px;
+  border-radius:var(--radius);cursor:pointer;font-family:var(--font-b);font-size:12px;transition:all .15s}
+.cal-nav button:hover{background:var(--primary);color:var(--bg)}
+.cal-title{font-family:var(--font-h);font-size:14px;font-weight:700;color:var(--primary);text-align:center}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-dow{text-align:center;font-size:9.5px;text-transform:uppercase;letter-spacing:.5px;
+  color:var(--muted);padding:4px 0;font-weight:700}
+.cal-day{min-height:38px;padding:3px 4px;border:1px solid transparent;border-radius:3px;
+  font-size:11px;position:relative;transition:background .15s;cursor:default}
+.cal-day.has-event{border-color:var(--border);background:var(--info-bg);cursor:pointer}
+.cal-day.has-event:hover{background:var(--primary);color:var(--bg)}
+.cal-day.has-event:hover .cal-dots span{background:var(--bg)}
+.cal-day.today{border:2px solid var(--accent);font-weight:700}
+.cal-day.empty{opacity:0}
+.cal-day-num{font-size:11px;font-weight:600;line-height:1.2}
+.cal-dots{display:flex;gap:2px;flex-wrap:wrap;margin-top:2px}
+.cal-dots span{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.cal-dots span.dot-crit{background:var(--crit)}
+.cal-dots span.dot-high{background:var(--high)}
+.cal-dots span.dot-info{background:var(--info)}
+.cal-dots span.dot-low{background:var(--low)}
+.cal-legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:10px;color:var(--muted)}
+.cal-legend span{display:flex;align-items:center;gap:4px}
+.cal-legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
+/* Popup */
+.cal-popup{display:none;position:fixed;z-index:999;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,.18);padding:14px 16px;
+  min-width:260px;max-width:340px;font-size:12px}
+.cal-popup.active{display:block}
+.cal-popup h3{font-size:12.5px;color:var(--primary);margin-bottom:8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.cal-popup .close{float:right;cursor:pointer;color:var(--muted);font-size:16px;line-height:1;margin-top:-2px}
+.cal-popup .ev{padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:8px}
+.cal-popup .ev:last-child{border-bottom:none}
+
+/* ====== NOTE ====== */
+.note{font-size:10.5px;color:var(--muted);margin-top:10px;font-style:italic;
+  border-top:1px solid var(--border);padding-top:8px}
+[data-theme="sombre"] .note{font-style:normal}
+.section-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+
+/* ====== FOOTER ====== */
+footer{margin-top:20px;padding-top:12px;border-top:1px solid var(--border);
+  font-size:10.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+footer b{color:var(--primary)}
+
+/* ====== PRINT ====== */
+@media print{
+  .toolbar,.btn,.cal-nav button,.cal-popup{display:none!important}
+  body{padding:0;max-width:100%;background:#fff!important;color:#000!important;font-size:10pt}
+  .card{box-shadow:none!important;border:1px solid #ccc!important;background:#fff!important;
+    break-inside:avoid;page-break-inside:avoid;margin-bottom:12pt}
+  .grid{gap:8pt}
+  header{border-bottom:2px solid #1a2b4a!important}
+  header h1{font-size:16pt;color:#1a2b4a!important}
+  .section-label{color:#444!important;margin-top:16pt}
+  .bar-wrap{height:200pt}
+  .gauge-wrap{height:140pt}
+  .donut-wrap{height:160pt}
+  .g3{grid-template-columns:repeat(3,1fr)!important}
+  .g2,.g2eq{grid-template-columns:1fr 1fr!important}
+  .page-break{page-break-before:always}
+  a{color:inherit;text-decoration:none}
+  canvas{max-width:100%}
+  [data-theme="sombre"] *{background:#fff!important;color:#000!important;border-color:#ccc!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <span class="gen-ts" id="ts-toolbar">Données : …</span>
+  <button class="btn print-btn" onclick="window.print()">🖨️ Imprimer / PDF</button>
+  <button class="btn" id="btn-theme">🎨 <span id="theme-lbl">Thème sombre</span></button>
+  <button class="btn" id="btn-refresh">🔄 Rafraîchir</button>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>Dashboard de pilotage — MEMNM-2026 / IMN-OSC</h1>
+  <div class="sub">Prof. Aziz El Hajir · CERSS, Rabat &nbsp;·&nbsp; Dir. sc. Prof. Abdallah Saaf</div>
+  <div class="meta">
+    <span><i>Société Civile et Écosystèmes Numériques au Maroc</i></span>
+    <span>Publication cible : <b>T1–T2 2027 (mars–avril 2027)</b></span>
+    <span>Généré le <span id="ts-header">…</span></span>
+  </div>
+</header>
+
+<!-- ===== CADRAN 1 : Jauges globales ===== -->
+<div class="section-label">① Avancement global</div>
+<div class="grid g3">
+  <div class="card">
+    <h2>Avancement global</h2>
+    <div class="gauge-wrap"><canvas id="g_global"></canvas></div>
+    <div class="kpi"><div class="ctx">Moyenne pondérée · 8 chantiers A→H</div></div>
+  </div>
+  <div class="card">
+    <h2>Collecte quantitative</h2>
+    <div class="gauge-wrap"><canvas id="g_collecte"></canvas></div>
+    <div class="kpi"><div class="ctx">Quota min. 322 · Clôture juin 2026</div></div>
+  </div>
+  <div class="card">
+    <h2>EAC &amp; Collecte qualitative</h2>
+    <div class="gauge-wrap"><canvas id="g_eac"></canvas></div>
+    <div class="kpi"><div class="ctx">Phase P1 · BDD V1.6c · N=72 · κ=0.7437</div></div>
+  </div>
+</div>
+
+<!-- ===== CADRAN 2 : Rédaction ===== -->
+<div class="section-label">② Rédaction des manuscrits — pages produites vs cible ToC</div>
+<div class="grid g2">
+  <div class="card">
+    <h2>Pages par section — courant vs cible</h2>
+    <div id="pages-bars"></div>
+    <div class="note">Base : 280 mots/page. Trait = cible ToC. Orange = débordement.</div>
+  </div>
+  <div class="card">
+    <h2>Annexes — 16 documents</h2>
+    <div id="annexes-list" style="overflow-y:auto;max-height:300px"></div>
+    <div class="note" id="ann-note"></div>
+  </div>
+</div>
+
+<!-- ===== CADRAN 3 : EAC ===== -->
+<div class="section-label">③ État EAC — Social Listening &amp; Collecte qualitative</div>
+<div class="grid g2eq">
+  <div class="card">
+    <h2>KPI EAC Phase P0 → P1</h2>
+    <div class="eac-grid" id="eac-kpis"></div>
+    <div style="font-size:10px;color:var(--muted)">Gradient présence YouTube par quadrant :</div>
+    <div class="grad-row" id="grad-bars"></div>
+    <div class="grad-lbl" id="grad-lbls"></div>
+    <div style="margin-top:8px" id="hyp-row"></div>
+  </div>
+  <div class="card">
+    <h2>Jalons EAC Phase P1</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Action</th><th>Priorité</th></tr></thead>
+        <tbody id="p1-tbody"></tbody>
+      </table>
+    </div>
+    <div class="note">P1-1 débloqué · POST-007 → SIL_ALGO_CONTENU · confirmation Facebook P1.</div>
+  </div>
+</div>
+
+<!-- ===== CADRAN 4 : Chantiers A-H ===== -->
+<div class="section-label">④ Avancement par chantier A–H</div>
+<div class="grid" style="grid-template-columns:1fr">
+  <div class="card">
+    <h2>Chantiers A–H · Pilotage V3</h2>
+    <div class="bar-wrap"><canvas id="b_chantiers"></canvas></div>
+    <div id="moy-badge"></div>
+  </div>
+</div>
+
+<!-- ===== CADRAN 5 : Chapitres + risques ===== -->
+<div class="section-label page-break">⑤ État de la rédaction des chapitres</div>
+<div class="grid g2eq">
+  <div class="card">
+    <h2>État des chapitres &amp; préliminaires</h2>
+    <div class="donut-wrap"><canvas id="d_chapitres"></canvas></div>
+    <div class="note" id="chap-note"></div>
+  </div>
+  <div class="card">
+    <h2>Registre des risques</h2>
+    <div style="display:flex;gap:16px;align-items:center">
+      <div style="position:relative;width:140px;height:140px;flex-shrink:0">
+        <canvas id="d_risques"></canvas>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:var(--radius);background:var(--crit-bg)">
+          <span style="font-size:11px;font-weight:700;color:var(--crit)">Critique</span>
+          <span id="r-crit" style="font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--crit)">—</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:var(--radius);background:var(--high-bg)">
+          <span style="font-size:11px;font-weight:700;color:var(--high)">Élevé</span>
+          <span id="r-high" style="font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--high)">—</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:var(--radius);background:var(--mid-bg)">
+          <span style="font-size:11px;font-weight:700;color:var(--mid)">Moyen</span>
+          <span id="r-mid" style="font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--mid)">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CADRAN 6 : Calendrier + Jalons ===== -->
+<div class="section-label">⑥ Jalons &amp; actions — calendrier glissant</div>
+<div class="grid g2">
+  <div class="card">
+    <h2>Calendrier des échéances</h2>
+    <div class="cal-nav">
+      <button id="cal-prev">◀</button>
+      <div class="cal-title" id="cal-title"></div>
+      <button id="cal-next">▶</button>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div class="cal-legend">
+      <span><i style="background:var(--crit)"></i> Critique</span>
+      <span><i style="background:var(--high)"></i> Élevé</span>
+      <span><i style="background:var(--info)"></i> En cours</span>
+      <span><i style="background:var(--low)"></i> Terminé</span>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Jalons du chemin critique</h2>
+    <div class="table-wrap" style="max-height:380px;overflow-y:auto;scrollbar-width:thin">
+      <table>
+        <thead style="position:sticky;top:0;background:var(--card);z-index:1">
+          <tr><th>Réf.</th><th>Jalon</th><th>Échéance</th><th>Statut</th></tr>
+        </thead>
+        <tbody id="jal-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CADRAN 7 : Heures ===== -->
+<div class="section-label page-break">⑦ Estimation charge horaire — grands axes</div>
+<div class="grid" style="grid-template-columns:1fr">
+  <div class="card">
+    <h2>Charge horaire estimative — 966 h réal. / 1555 h prévues</h2>
+        <!-- Layout unifié : donut+stats à gauche · barres à droite -->
+    <div style="display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start">
+      <!-- Colonne gauche : donut + récapitulatif -->
+      <div>
+        <div style="position:relative;width:180px;height:180px;margin:0 auto 10px">
+          <canvas id="c_heures"></canvas>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
+            <div style="font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:var(--primary);line-height:1">1 555 h</div>
+            <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-top:3px">total prévu</div>
+          </div>
+        </div>
+        <div class="h-ring-stats">
+          <div class="row"><span class="lbl">● Réalisées</span><span class="val" style="color:var(--low)">966 h</span></div>
+          <div class="row"><span class="lbl">○ Restantes</span><span class="val" style="color:var(--high)">589 h</span></div>
+          <div class="row"><span class="lbl">Avancement</span><span class="val">62 %</span></div>
+          <div class="row"><span class="lbl">Équivalent</span><span class="val">≈ 39 sem.</span></div>
+        </div>
+      </div>
+      <!-- Colonne droite : barres par grand axe -->
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px">Détail par grand axe</div>
+        <div id="hour-bars"></div>
+      </div>
+    </div>
+    <div class="note">Barre foncée = réalisé · barre claire = charge totale · valeurs indicatives.<span id="h-total" style="display:none"></span></div>
+  </div>
+</div>
+
+<!-- ===== INVENTAIRE (compact) ===== -->
+<div class="grid g3">
+  <div class="card">
+    <h2>Inventaire v9</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+      <div class="kpi"><div class="big" id="inv-tot">—</div><div class="lbl">Fichiers</div></div>
+      <div class="kpi"><div class="big" id="inv-can" style="color:var(--sage)">—</div><div class="lbl">Canon</div></div>
+      <div class="kpi"><div class="big" id="inv-act" style="color:var(--low)">—</div><div class="lbl">Actif</div></div>
+      <div class="kpi"><div class="big" id="inv-arc" style="color:var(--muted)">—</div><div class="lbl">Archivé</div></div>
+    </div>
+  </div>
+  <div class="card" style="grid-column:span 2">
+    <h2>Collecte J1 — Détail</h2>
+    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <div class="kpi">
+        <div class="big">139<span style="font-size:1rem;color:var(--muted)"> / 322</span></div>
+        <div class="lbl">Réponses validées</div>
+      </div>
+      <div style="flex:1;min-width:200px">
+        <div style="height:20px;background:var(--border);border-radius:4px;overflow:hidden">
+          <div style="height:100%;width:43%;background:var(--sage);border-radius:4px;transition:width .6s"></div>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">43% du quota · Vague 1 · Clôture prévue juin 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>Sources : <b>Pilotage V3 · Inventaire v9 · BDD EAC V1.6c</b></span>
+  <span>MEMNM-2026 · CERSS · <span id="ts-footer">…</span></span>
+</footer>
+
+<!-- ===== POPUP CALENDRIER ===== -->
+<div class="cal-popup" id="cal-popup">
+  <span class="close" id="cal-popup-close">✕</span>
+  <h3 id="cal-popup-title"></h3>
+  <div id="cal-popup-body"></div>
+</div>
+
+</script>
+<script src="Dashboard_data.js"></script>
+<script>
+// D chargé depuis Dashboard_data.js — ne pas éditer ici
+
+// ---- THEME
+document.getElementById('btn-theme').addEventListener('click', () => {
+  const t = document.documentElement.getAttribute('data-theme');
+  const nt = t === 'clair' ? 'sombre' : 'clair';
+  document.documentElement.setAttribute('data-theme', nt);
+  document.getElementById('theme-lbl').textContent = nt === 'clair' ? 'Thème sombre' : 'Thème clair';
+  updateRingColor();
+  renderAll();
+});
+document.getElementById('btn-refresh').addEventListener('click', () => {
+  location.replace(location.href.split('?')[0] + '?_=' + Date.now());
+});
+
+function cv(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function pal() {
+  return { p:cv('--primary'), a:cv('--accent'), a2:cv('--accent2'), sg:cv('--sage'),
+    mu:cv('--muted'), bd:cv('--border'), cr:cv('--crit'), hi:cv('--high'),
+    mi:cv('--mid'), lo:cv('--low'), inf:cv('--info') };
+}
+
+// ring color n/a (donut chart)
+
+const CR = {};
+function destroyAll() { Object.values(CR).forEach(c => c && c.destroy()); Object.keys(CR).forEach(k => delete CR[k]); }
+
+// ---- GAUGE
+function gauge(id, val, max, color, label) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  const v = Math.min(val, max), r = Math.max(max - v, 0);
+  CR[id] = new Chart(ctx, {
+    type: 'doughnut',
+    data: { datasets: [{ data: [v, r], backgroundColor: [color, cv('--border')], borderWidth: 0 }] },
+    options: { rotation: -90, circumference: 180, cutout: '72%',
+      plugins: { legend: { display: false }, tooltip: { enabled: false } } },
+  });
+  // Overlay HTML — suit le thème CSS nativement
+  const wrap = ctx.parentElement;
+  let ov = wrap.querySelector('.gauge-label');
+  if (!ov) { ov = document.createElement('div'); ov.className = 'gauge-label'; wrap.appendChild(ov); }
+  ov.textContent = label;
+}
+
+// ---- CALENDRIER
+let calYear = new Date().getFullYear(), calMonth = new Date().getMonth();
+const MOIS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const DOW_FR  = ['Lu','Ma','Me','Je','Ve','Sa','Di'];
+
+function parseJalonDate(s) {
+  if (!s) return null;
+  // "11 mai 2026", "Juin 2026", "20 avr. 2026", "Mars-Avr. 2027"
+  const mmap = { jan:0,janv:0,fév:1,fev:1,févr:1,mar:2,mars:2,avr:3,avril:3,mai:4,
+    jun:5,juin:5,juil:6,juill:6,aoû:7,aout:7,août:7,sep:8,sept:8,oct:9,nov:10,déc:11,dec:11 };
+  s = s.toLowerCase().replace(/[.]/g,'');
+  // dd mmm yyyy
+  let m = s.match(/(\d{1,2})\s+([a-zéûôà]+)\s+(\d{4})/);
+  if (m) { const mo = mmap[m[2]]; if (mo !== undefined) return new Date(+m[3], mo, +m[1]); }
+  // mmm yyyy
+  m = s.match(/([a-zéûôà]+)\s+(\d{4})/);
+  if (m) { const mo = mmap[m[1]]; if (mo !== undefined) return new Date(+m[2], mo, 15); }
+  // yyyy-mm-dd
+  m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return new Date(+m[1], +m[2]-1, +m[3]);
+  return null;
+}
+
+function buildCalEvents() {
+  const ev = {};
+  D.jalons.forEach(j => {
+    const dt = parseJalonDate(j.d);
+    if (!dt) return;
+    const key = dt.getFullYear() + '-' + dt.getMonth() + '-' + dt.getDate();
+    if (!ev[key]) ev[key] = [];
+    ev[key].push(j);
+  });
+  return ev;
+}
+
+function renderCal() {
+  const events = buildCalEvents();
+  const title  = MOIS_FR[calMonth] + ' ' + calYear;
+  document.getElementById('cal-title').textContent = title;
+
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+  DOW_FR.forEach(d => {
+    const el = document.createElement('div'); el.className = 'cal-dow'; el.textContent = d; grid.appendChild(el);
+  });
+
+  const first = new Date(calYear, calMonth, 1);
+  const startDow = (first.getDay() + 6) % 7; // 0=Mon
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  for (let i = 0; i < startDow; i++) {
+    const el = document.createElement('div'); el.className = 'cal-day empty'; grid.appendChild(el);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = calYear + '-' + calMonth + '-' + d;
+    const evList = events[key] || [];
+    const dt = new Date(calYear, calMonth, d); dt.setHours(0,0,0,0);
+    const el = document.createElement('div');
+    el.className = 'cal-day' + (evList.length ? ' has-event' : '') + (dt.getTime() === today.getTime() ? ' today' : '');
+    el.innerHTML = '<div class="cal-day-num">' + d + '</div>';
+    if (evList.length) {
+      const dots = document.createElement('div'); dots.className = 'cal-dots';
+      evList.forEach(j => {
+        const dot = document.createElement('span');
+        const r = (j.risk||'').toUpperCase();
+        dot.className = r.includes('CRITIQUE') ? 'dot-crit' : r.includes('LEV') ? 'dot-high' :
+          j.stat.includes('✅') ? 'dot-low' : 'dot-info';
+        dots.appendChild(dot);
+      });
+      el.appendChild(dots);
+      el.addEventListener('click', e => { e.stopPropagation(); showPopup(e, title + ' ' + d, evList); });
+    }
+    grid.appendChild(el);
+  }
+}
+
+function showPopup(e, title, evList) {
+  const p = document.getElementById('cal-popup');
+  document.getElementById('cal-popup-title').textContent = title;
+  const body = document.getElementById('cal-popup-body');
+  body.innerHTML = '';
+  evList.forEach(j => {
+    const rc = (j.risk||'').toUpperCase().includes('CRITIQUE')?'t-crit':(j.risk||'').toLowerCase().includes('lev')?'t-high':'t-mid';
+    body.insertAdjacentHTML('beforeend',
+      '<div class="ev"><span class="tag ' + rc + '">' + j.r + '</span><span>' + j.n + '</span></div>');
+  });
+  const rect = e.target.closest('.card').getBoundingClientRect();
+  const popH = 200, popW = 340;
+  const top  = Math.min(e.clientY + 10, window.innerHeight - popH - 20);
+  const left = Math.min(e.clientX + 10, window.innerWidth  - popW - 10);
+  p.style.top  = Math.max(top,  10) + 'px';
+  p.style.left = Math.max(left, 10) + 'px';
+  p.classList.add('active');
+}
+document.getElementById('cal-popup-close').addEventListener('click', () => {
+  document.getElementById('cal-popup').classList.remove('active');
+});
+document.getElementById('cal-prev').addEventListener('click', () => {
+  calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCal();
+});
+document.getElementById('cal-next').addEventListener('click', () => {
+  calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCal();
+});
+document.addEventListener('click', e => {
+  const p = document.getElementById('cal-popup');
+  if (p.classList.contains('active') && !p.contains(e.target) && !e.target.closest('.has-event'))
+    p.classList.remove('active');
+});
+
+// ---- MAIN RENDER
+function renderAll() {
+  destroyAll();
+  // Timestamp dynamique depuis D.meta
+  const ts = (D.meta && D.meta.generated_full) ? D.meta.generated_full : '—';
+  ['ts-toolbar','ts-header','ts-footer'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = ts;
+  });
+  if (document.getElementById('ts-toolbar'))
+    document.getElementById('ts-toolbar').textContent = 'Données : ' + ts;
+
+
+  const P = pal();
+
+  gauge('g_global',   D.global_pct,        100,          P.p,  D.global_pct + '%');
+  gauge('g_collecte', D.collecte.value,     D.collecte.max, P.a,  D.collecte.value + '');
+  gauge('g_eac',      D.eac.corpus_annote,  80,           P.sg, D.eac.corpus_annote + ' posts');
+
+  // Pages
+  const ph = document.getElementById('pages-bars'); ph.innerHTML = '';
+  const mx = Math.max(...D.pages.map(p => Math.max(p.courant, p.cible))) * 1.05 || 200;
+  D.pages.forEach(p => {
+    const r = p.courant / p.cible, fw = Math.min(p.courant, mx) / mx * 100, tx = p.cible / mx * 100;
+    const cls = r >= 1.1 ? 'over' : r >= 0.6 ? 'ok' : r >= 0.2 ? 'part' : 'none';
+    ph.insertAdjacentHTML('beforeend', `<div class="page-row">
+      <div class="name">${p.nom}</div>
+      <div class="bar"><div class="fill ${cls}" style="width:${fw.toFixed(1)}%"></div>
+        <div class="target-line" style="left:${tx.toFixed(1)}%"></div></div>
+      <div class="val"><b>${p.courant}</b> / ${p.cible} p.</div></div>`);
+  });
+
+  // Annexes
+  const ah = document.getElementById('annexes-list'); ah.innerHTML = '';
+  let atot = 0, afin = 0;
+  D.annexes.forEach(a => {
+    atot += a.pages; if (a.etat.includes('inalis')) afin += a.pages;
+    const tc = a.etat.includes('inalis') ? 't-low' : a.etat.includes('cours') ? 't-info' : 't-mid';
+    ah.insertAdjacentHTML('beforeend', `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:11px;gap:8px">
+      <span style="font-weight:700;color:var(--primary);min-width:28px">A${a.ref}</span>
+      <span style="flex:1">${a.nom}</span>
+      <span style="color:var(--muted);font-size:10px;white-space:nowrap">${a.pages}p.</span>
+      <span class="tag ${tc}">${a.etat}</span></div>`);
+  });
+  document.getElementById('ann-note').textContent = `Total : ${atot} p. · Finalisées : ${afin} p. (${atot ? Math.round(afin/atot*100) : 0} %)`;
+
+  // EAC KPI
+  const ek = document.getElementById('eac-kpis'); ek.innerHTML = '';
+  [['N='+D.eac.corpus_annote,'Corpus annoté'],['κ='+D.eac.kappa,'Inter-annot.'],
+   [D.eac.ref_entrees+' ent.','Référentiel'],
+   [D.eac.posts_bruts+' posts','Bruts'],
+   [D.eac.langue.fr+'%','Français'],
+   [D.eac.sentiment.positif+'%','Ton positif']
+  ].forEach(([n,l]) => ek.insertAdjacentHTML('beforeend',
+    `<div class="eac-kpi"><div class="num">${n}</div><div class="lbl">${l}</div></div>`));
+
+  const gb = document.getElementById('grad-bars'); gb.innerHTML = '';
+  const gl = document.getElementById('grad-lbls'); gl.innerHTML = '';
+  const gmax = Math.max(...Object.values(D.eac.gradient_yt)) || 1;
+  Object.entries(D.eac.gradient_yt).forEach(([q,v]) => {
+    gb.insertAdjacentHTML('beforeend',`<div class="grad-bar" style="height:${Math.max(v/gmax*44,4)}px" title="${q}:${v}%"></div>`);
+    gl.insertAdjacentHTML('beforeend',`<span>${q} ${v}%</span>`);
+  });
+  const hr = document.getElementById('hyp-row'); hr.innerHTML = '';
+  Object.entries(D.eac.hypotheses).forEach(([h,v]) => {
+    const cl = v.includes('CONFIRM') && !v.includes('PARTIE') ? 'conf' : 'part';
+    hr.insertAdjacentHTML('beforeend', `<span class="hyp ${cl}">${h} — ${v}</span>`);
+  });
+  const p1 = document.getElementById('p1-tbody'); p1.innerHTML = '';
+  (D.eac.jalons_p1||[]).forEach(j => {
+    const tc = j.priorite==='BLOQUANT'?'t-crit':j.priorite==='Haute'?'t-high':'t-mid';
+    p1.innerHTML += `<tr><td><b>${j.id}</b></td><td>${j.desc}</td><td><span class="tag ${tc}">${j.priorite}</span></td></tr>`;
+  });
+
+  // Chantiers
+  const moy = D.chantiers.length ? Math.round(D.chantiers.reduce((s,c)=>s+c.pct,0)/D.chantiers.length) : 0;
+  CR.ch = new Chart(document.getElementById('b_chantiers'), {
+    type: 'bar',
+    data: {
+      labels: D.chantiers.map(c => c.code + ' · ' + c.nom),
+      datasets: [{
+        label: 'Avancement (%)', data: D.chantiers.map(c => c.pct),
+        backgroundColor: D.chantiers.map(c => c.pct>=70?P.lo:c.pct>=30?P.a2:c.pct>0?P.hi:P.bd),
+        borderWidth: 0, borderRadius: 4
+      },{
+        label: 'Moyenne', data: D.chantiers.map(() => moy), type: 'line',
+        borderColor: P.p, borderDash: [6,4], borderWidth: 2, pointRadius: 0, fill: false
+      }]
+    },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position:'bottom', labels:{font:{size:11},boxWidth:12,color:P.p} },
+        tooltip: { callbacks: { label: c => c.dataset.label + ' : ' + c.parsed.x + '%' } } },
+      scales: { x:{min:0,max:100,ticks:{callback:v=>v+'%',font:{size:11},color:P.mu},grid:{color:P.bd}},
+                y:{ticks:{font:{size:11.5},color:P.p},grid:{display:false}} } }
+  });
+  document.getElementById('moy-badge').innerHTML =
+    `<div class="moy-badge">Moyenne chantiers : ${moy} % &nbsp;·&nbsp; GLOBAL pondéré : ${D.global_pct} %</div>`;
+
+  // Chapitres
+  const CC = D.chapitres && D.chapitres.length ? D.chapitres :
+    [{etat:'Rédigé',n:3,couleur:'low'},{etat:'Finalisé',n:4,couleur:'sage'},{etat:'En cours',n:5,couleur:'gold'},
+     {etat:'Squelette',n:8,couleur:'high'},{etat:'À rédiger',n:8,couleur:'crit'}];
+  const cmap = {low:P.lo,sage:P.sg,gold:P.a2,high:P.hi,crit:P.cr};
+  CR.chap = new Chart(document.getElementById('d_chapitres'), {
+    type: 'doughnut',
+    data: { labels: CC.map(c=>c.etat+' ('+c.n+')'),
+      datasets: [{data:CC.map(c=>c.n),backgroundColor:CC.map(c=>cmap[c.couleur]||P.mu),borderWidth:2,borderColor:cv('--card')}] },
+    options: { responsive:true, maintainAspectRatio:false, cutout:'55%',
+      plugins: { legend: { position:'right', labels:{font:{size:10.5},color:P.p,boxWidth:12,padding:8} } } }
+  });
+  const tot_ch = CC.reduce((s,c)=>s+c.n,0), fin_ch=CC.filter(c=>['low','sage'].includes(c.couleur)).reduce((s,c)=>s+c.n,0);
+  document.getElementById('chap-note').textContent = `${fin_ch} / ${tot_ch} chapitres rédigés ou finalisés (${tot_ch?Math.round(fin_ch/tot_ch*100):0} %)`;
+
+  // Risques
+  const RR = D.risques||{};
+  const rc=RR.crit||1, rh=RR.high||5, rm=RR.mid||4;
+  CR.risk = new Chart(document.getElementById('d_risques'), {
+    type: 'doughnut',
+    data: { labels:['Critique','Élevé','Moyen'],
+      datasets:[{data:[rc,rh,rm],backgroundColor:[P.cr,P.hi,P.mi],borderWidth:2,borderColor:cv('--card')}] },
+    options: { responsive:true, maintainAspectRatio:false, cutout:'55%',
+      plugins: { legend: { position:'right', labels:{font:{size:10.5},color:P.p,boxWidth:12,padding:8} } } }
+  });
+  document.getElementById('r-crit').textContent = rc;
+  document.getElementById('r-high').textContent = rh;
+  document.getElementById('r-mid').textContent  = rm;
+
+  // Jalons tableau
+  const jt = document.getElementById('jal-tbody'); jt.innerHTML = '';
+  const now = new Date(); now.setHours(0,0,0,0);
+  D.jalons.forEach(j => {
+    const dt = parseJalonDate(j.d);
+    const retard = dt && dt < now && !j.stat.includes('✅');
+    const sc = j.stat.includes('✅')?'t-low':j.stat.toLowerCase().includes('cours')?'t-info':'t-mid';
+    const rc2 = (j.risk||'').toUpperCase().includes('CRITIQUE')?'t-crit':(j.risk||'').toLowerCase().includes('lev')?'t-high':'t-mid';
+    jt.innerHTML += `<tr class="${retard?'retard':''}">
+      <td><b>${j.r}</b></td><td>${j.n}</td>
+      <td class="mono">${j.d||'—'}</td>
+      <td><span class="tag ${sc}">${j.stat}</span></td></tr>`;
+  });
+
+  // Heures
+  const hh = document.getElementById('hour-bars'); hh.innerHTML = '';
+  const hmax = Math.max(...D.heures.map(h => h.h));
+  D.heures.forEach(h => {
+    const tw = h.h/hmax*100, dw = Math.round(h.h*h.done)/hmax*100;
+    hh.insertAdjacentHTML('beforeend', `<div class="hour-row">
+      <div class="name">${h.axe}</div>
+      <div class="bar">
+        <div class="fill-tot" style="width:${tw.toFixed(1)}%"></div>
+        <div class="fill-done" style="width:${dw.toFixed(1)}%"></div>
+      </div>
+      <div class="val">${Math.round(h.h*h.done)} / ${h.h} h</div></div>`);
+  });
+  document.getElementById('h-total').textContent = D.h_done + ' h réal. / ' + D.h_total + ' h prévu (≈ ' + Math.round(D.h_total/40) + ' sem.)';
+
+  // Donut heures
+  const hCtx = document.getElementById('c_heures');
+  if (hCtx) {
+    CR.heure = new Chart(hCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Réalisées (966 h)', 'Restantes (589 h)'],
+        datasets: [{
+          data: [966, 589],
+          backgroundColor: [P.lo, P.hi],
+          borderColor: [cv('--card'), cv('--card')],
+          borderWidth: 3
+        }]
+      },
+      options: {
+        cutout: '62%', responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { font: {size:11}, color: P.p, boxWidth: 12, padding: 10 } },
+          tooltip: { callbacks: { label: c => c.label + ' · ' + Math.round(c.parsed/1555*100) + '%' } }
+        }
+      }
+    });
+  }
+
+  // Inventaire
+  const inv = D.inventaire||{};
+  document.getElementById('inv-tot').textContent = inv.fichiers||354;
+  document.getElementById('inv-can').textContent = inv.canon||29;
+  document.getElementById('inv-act').textContent = inv.actif||193;
+  document.getElementById('inv-arc').textContent = inv.archive||116;
+}
+
+renderAll();
+renderCal();
+</script>
+</body>
+</html>
