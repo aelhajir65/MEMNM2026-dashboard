@@ -50,5 +50,23 @@ Pour citer cet outil de pilotage de recherche :
 > El Hajir, A. (2026). *Dashboard de pilotage — MEMNM-2026*. Centre d'Études et de Recherches en Sciences Sociales (CERSS). [URL]
 
 ---
+## Licence
 
+Ce dashboard et les données agrégées qu'il publie sont mis à disposition sous licence **[Creative Commons Attribution – Pas d'Utilisation Commerciale – Pas de Modification 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)**.
+
+[![CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)
+
+Vous êtes autorisé à :
+- **Partager** — copier, distribuer et communiquer le matériel par tous moyens et sous tous formats
+
+Selon les conditions suivantes :
+- **Attribution** — Vous devez créditer l'œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées.
+- **Pas d'Utilisation Commerciale** — Vous n'êtes pas autorisé à faire un usage commercial de ce matériel.
+- **Pas de Modifications** — Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir de ce matériel, vous n'êtes pas autorisé à distribuer le matériel modifié.
+
+## Comment citer
+
+> El Hajir, A. (2026). *Dashboard de pilotage — MEMNM-2026 : Société Civile et Écosystèmes Numériques au Maroc*. Centre d'Études et de Recherches en Sciences Sociales (CERSS), Rabat. Disponible : https://aelhajir65.github.io/MEMNM2026-dashboard/
+
+© 2026 Aziz El Hajir / CERSS — Tous droits réservés sur l'ouvrage à paraître.
 *Dernière régénération automatique : voir l'entête du dashboard.*
