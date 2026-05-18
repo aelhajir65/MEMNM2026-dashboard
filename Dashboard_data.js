@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 18/05/2026 19:23 -- MEMNM-2026
+// 18/05/2026 21:47 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-18",
-    "generated_full": "18/05/2026 19:23",
+    "generated_full": "18/05/2026 21:47",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -116,30 +116,35 @@ const D = {
       "nom": "Introduction generale",
       "courant": 29,
       "cible": 20,
+      "source": "confirme",
       "alert": "overshoot"
     },
     {
       "nom": "Partie I (Ch.1-3)",
       "courant": 448,
       "cible": 140,
+      "source": "confirme",
       "alert": "overshoot"
     },
     {
       "nom": "Partie II (Ch.4-6)",
       "courant": 218,
       "cible": 100,
+      "source": "confirme",
       "alert": "overshoot"
     },
     {
       "nom": "Partie III (Ch.7-12)",
       "courant": 100,
-      "cible": 195
+      "cible": 195,
+      "source": "confirme"
     },
     {
       "nom": "Partie IV (Ch.13-15)",
-      "courant": 52,
+      "courant": 39,
       "cible": 80,
-      "detail": "Ch13=18 Ch14=22 Ch15=12"
+      "detail": "Ch13=13(cfg) Ch14=6(cfg) Ch15=20(cfg)",
+      "source": "confirme"
     },
     {
       "nom": "Conclusion",
@@ -487,13 +492,13 @@ const D = {
     "06_Enquete_Pilote": 29,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 15,
+    "09_Scripts": 16,
     "10_Social_Listening": 100,
     "_ARCHIVE": 79,
-    "__total__": 366,
+    "__total__": 367,
     "__date__": "2026-05-18"
   },
-  "delta_fichiers": 12,
+  "delta_fichiers": 13,
   "chapitres": [],
   "heures": [
     {
