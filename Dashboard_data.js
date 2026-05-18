@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 18/05/2026 14:25 -- MEMNM-2026
+// 18/05/2026 19:23 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-18",
-    "generated_full": "18/05/2026 14:25",
+    "generated_full": "18/05/2026 19:23",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -137,8 +137,9 @@ const D = {
     },
     {
       "nom": "Partie IV (Ch.13-15)",
-      "courant": 17,
-      "cible": 80
+      "courant": 52,
+      "cible": 80,
+      "detail": "Ch13=18 Ch14=22 Ch15=12"
     },
     {
       "nom": "Conclusion",
@@ -480,19 +481,19 @@ const D = {
     "00_Manuscrit_Master": 8,
     "01_Drafts_Chapitres": 18,
     "02_Livrables_DEC030": 6,
-    "03_Pilotage_Inventaire": 20,
+    "03_Pilotage_Inventaire": 18,
     "04_Bibliographie": 3,
     "05_Diagnostic_Audit": 2,
     "06_Enquete_Pilote": 29,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 20,
+    "09_Scripts": 15,
     "10_Social_Listening": 100,
-    "_ARCHIVE": 66,
-    "__total__": 360,
+    "_ARCHIVE": 79,
+    "__total__": 366,
     "__date__": "2026-05-18"
   },
-  "delta_fichiers": 6,
+  "delta_fichiers": 12,
   "chapitres": [],
   "heures": [
     {
