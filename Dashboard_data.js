@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 18/05/2026 21:47 -- MEMNM-2026
+// 18/05/2026 20:10 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-18",
-    "generated_full": "18/05/2026 21:47",
+    "generated_full": "18/05/2026 20:10",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -121,29 +121,29 @@ const D = {
     },
     {
       "nom": "Partie I (Ch.1-3)",
-      "courant": 448,
+      "courant": 279,
       "cible": 140,
       "source": "confirme",
       "alert": "overshoot"
     },
     {
       "nom": "Partie II (Ch.4-6)",
-      "courant": 218,
+      "courant": 154,
       "cible": 100,
       "source": "confirme",
       "alert": "overshoot"
     },
     {
       "nom": "Partie III (Ch.7-12)",
-      "courant": 100,
+      "courant": 86,
       "cible": 195,
       "source": "confirme"
     },
     {
       "nom": "Partie IV (Ch.13-15)",
-      "courant": 39,
+      "courant": 42,
       "cible": 80,
-      "detail": "Ch13=13(cfg) Ch14=6(cfg) Ch15=20(cfg)",
+      "detail": "Ch13=13 Ch14=6 Ch15=20 (total cfg=42)",
       "source": "confirme"
     },
     {
@@ -502,17 +502,17 @@ const D = {
   "chapitres": [],
   "heures": [
     {
-      "axe": "Rédaction Partie I–II",
+      "axe": "Redaction Partie I-II",
       "h": 320,
       "done": 0.85
     },
     {
-      "axe": "Rédaction Partie III",
+      "axe": "Redaction Partie III",
       "h": 180,
       "done": 0.35
     },
     {
-      "axe": "Rédaction Partie IV",
+      "axe": "Redaction Partie IV",
       "h": 220,
       "done": 0.82
     },
@@ -555,7 +555,7 @@ const D = {
   "evolution": {
     "dates": [
       "Jan",
-      "Fév",
+      "Fev",
       "Mar",
       "Avr",
       "Mai"
