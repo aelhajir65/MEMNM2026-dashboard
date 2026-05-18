@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 18/05/2026 22:11 -- MEMNM-2026
+// 18/05/2026 22:50 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-18",
-    "generated_full": "18/05/2026 22:11",
+    "generated_full": "18/05/2026 22:50",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -299,7 +299,7 @@ const D = {
       "ch": "D",
       "d": "Mai 2026",
       "risk": "Faible",
-      "stat": "📅 Planifié",
+      "stat": "✅ Terminé",
       "retard": false
     },
     {
@@ -308,7 +308,7 @@ const D = {
       "ch": "A",
       "d": "11 mai 2026",
       "risk": "Élevé",
-      "stat": "📅 Planifié",
+      "stat": "✅ Terminé",
       "retard": true
     },
     {
@@ -409,7 +409,7 @@ const D = {
       "ch": "A",
       "d": "11 mai 2026",
       "risk": "Élevé",
-      "stat": "📅 Planifié",
+      "stat": "✅ Terminé",
       "retard": true
     }
   ],
