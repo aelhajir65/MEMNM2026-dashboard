@@ -86,7 +86,7 @@ const D = {
     "vague": "Vague 1 (préparation)",
     "date": "2026-05-21 00:00:00"
   },
-  "delta_collecte": 49,
+  "delta_collecte": 0,
   "risques": {
     "crit": 1,
     "mid": 4
