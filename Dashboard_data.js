@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 21/05/2026 16:37 -- MEMNM-2026
+// 21/05/2026 16:47 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-21",
-    "generated_full": "21/05/2026 16:37",
+    "generated_full": "21/05/2026 16:47",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -81,12 +81,12 @@ const D = {
     }
   ],
   "collecte": {
-    "value": 125,
+    "value": 154,
     "max": 322,
-    "vague": "Vague 1",
-    "date": ""
+    "vague": "Vague 1 (préparation)",
+    "date": "2026-05-19 00:00:00"
   },
-  "delta_collecte": 0,
+  "delta_collecte": 29,
   "risques": {
     "crit": 1,
     "mid": 4
@@ -396,24 +396,6 @@ const D = {
       "risk": "CRITIQUE",
       "stat": "📅 Planifié",
       "retard": false
-    },
-    {
-      "r": "J17",
-      "n": "Dashboard public CERSS en ligne",
-      "ch": "I",
-      "d": "17 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · https://aelhajir65.github.io/MEMNM2026-dashboard/",
-      "retard": true
-    },
-    {
-      "r": "J18",
-      "n": "Licence éditoriale Dashboard (CC BY-NC-ND 4.0)",
-      "ch": "I",
-      "d": "21 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · LICENSE + section README",
-      "retard": false
     }
   ],
   "jalons_retard": [
@@ -424,15 +406,6 @@ const D = {
       "d": "11 mai 2026",
       "risk": "Élevé",
       "stat": "✅ Terminé",
-      "retard": true
-    },
-    {
-      "r": "J17",
-      "n": "Dashboard public CERSS en ligne",
-      "ch": "I",
-      "d": "17 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · https://aelhajir65.github.io/MEMNM2026-dashboard/",
       "retard": true
     }
   ],
@@ -515,13 +488,13 @@ const D = {
     "06_Enquete_Pilote": 29,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 25,
+    "09_Scripts": 26,
     "10_Social_Listening": 100,
     "_ARCHIVE": 79,
-    "__total__": 382,
+    "__total__": 383,
     "__date__": "2026-05-21"
   },
-  "delta_fichiers": 28,
+  "delta_fichiers": 29,
   "chapitres": [],
   "heures": [
     {
