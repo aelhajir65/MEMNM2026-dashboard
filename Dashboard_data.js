@@ -86,7 +86,7 @@ const D = {
     "vague": "Vague 1",
     "date": ""
   },
-  "delta_collecte": -29,
+  "delta_collecte": 0,
   "risques": {
     "crit": 1,
     "mid": 4
