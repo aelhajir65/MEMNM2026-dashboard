@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 20/05/2026 23:04 -- MEMNM-2026
+// 21/05/2026 11:42 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-05-20",
-    "generated_full": "20/05/2026 23:04",
+    "generated": "2026-05-21",
+    "generated_full": "21/05/2026 11:42",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -104,7 +104,7 @@ const D = {
     "actif": 193,
     "draft": 13,
     "archive": 116,
-    "majVersion": "Inventaire v9 . 20 May 2026"
+    "majVersion": "Inventaire v9 . 21 May 2026"
   },
   "pages": [
     {
@@ -483,8 +483,8 @@ const D = {
     ]
   },
   "filesystem": {
-    "00_Manuscrit_Master": 8,
-    "01_Drafts_Chapitres": 18,
+    "00_Manuscrit_Master": 9,
+    "01_Drafts_Chapitres": 21,
     "02_Livrables_DEC030": 6,
     "03_Pilotage_Inventaire": 18,
     "04_Bibliographie": 3,
@@ -495,10 +495,10 @@ const D = {
     "09_Scripts": 22,
     "10_Social_Listening": 100,
     "_ARCHIVE": 79,
-    "__total__": 373,
-    "__date__": "2026-05-20"
+    "__total__": 377,
+    "__date__": "2026-05-21"
   },
-  "delta_fichiers": 19,
+  "delta_fichiers": 23,
   "chapitres": [],
   "heures": [
     {
