@@ -37,7 +37,7 @@ const D = {
     }
   },
   "global_pct": 72,
-  "delta_global": -1,
+  "delta_global": 0,
   "chantiers": [
     {
       "code": "A",
@@ -494,7 +494,7 @@ const D = {
     "__total__": 396,
     "__date__": "2026-05-22"
   },
-  "delta_fichiers": 36,
+  "delta_fichiers": 42,
   "chapitres": [],
   "heures": [
     {
