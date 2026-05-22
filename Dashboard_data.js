@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 22/05/2026 09:45 -- MEMNM-2026
+// 22/05/2026 08:07 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-22",
-    "generated_full": "22/05/2026 09:45",
+    "generated_full": "22/05/2026 08:07",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -510,8 +510,8 @@ const D = {
     "jalons_p1": [
       {
         "id": "P1-1",
-        "desc": "Validation A15.6.2 par [AZ]",
-        "priorite": "BLOQUANT"
+        "desc": "✅ CLOS 22/05/2026 -- A15.6.2 VALIDE [AZ] (D.1-D.4 conformes workflow, faisables P1, alignes CERSS)",
+        "priorite": "✅ CLOS"
       },
       {
         "id": "P1-2",
@@ -546,18 +546,18 @@ const D = {
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
     "09_Scripts": 31,
-    "10_Social_Listening": 102,
+    "10_Social_Listening": 103,
     "_ARCHIVE": 79,
-    "__total__": 397,
+    "__total__": 398,
     "__date__": "2026-05-22"
   },
-  "delta_fichiers": 31,
+  "delta_fichiers": 398,
   "chapitres": [],
   "heures": [
     {
       "axe": "Redaction Partie I-II",
       "h": 320,
-      "done": 0.85
+      "done": 0.9
     },
     {
       "axe": "Redaction Partie III",
@@ -572,7 +572,7 @@ const D = {
     {
       "axe": "Finalisation & assemblage",
       "h": 120,
-      "done": 0.0
+      "done": 0.2
     },
     {
       "axe": "Collecte quantitative",
@@ -587,7 +587,7 @@ const D = {
     {
       "axe": "Social Listening EAC",
       "h": 180,
-      "done": 0.9
+      "done": 0.97
     },
     {
       "axe": "Stats & Scoring IMN",
@@ -643,5 +643,5 @@ const D = {
     ]
   },
   "h_total": 1555,
-  "h_done": 967
+  "h_done": 1019
 };
