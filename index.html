@@ -377,7 +377,7 @@ footer b{color:var(--primary)}
 <div class="section-label page-break">⑦ Estimation charge horaire — grands axes</div>
 <div class="grid" style="grid-template-columns:1fr">
   <div class="card">
-    <h2>Charge horaire estimative — 966 h réal. / 1555 h prévues</h2>
+    <h2>Charge horaire estimative — <span id="h-titre-done">966</span> h réal. / <span id="h-titre-tot">1555</span> h prévues</h2>
         <!-- Layout unifié : donut+stats à gauche · barres à droite -->
     <div style="display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start">
       <!-- Colonne gauche : donut + récapitulatif -->
@@ -390,10 +390,10 @@ footer b{color:var(--primary)}
           </div>
         </div>
         <div class="h-ring-stats">
-          <div class="row"><span class="lbl">● Réalisées</span><span class="val" style="color:var(--low)">966 h</span></div>
-          <div class="row"><span class="lbl">○ Restantes</span><span class="val" style="color:var(--high)">589 h</span></div>
-          <div class="row"><span class="lbl">Avancement</span><span class="val">62 %</span></div>
-          <div class="row"><span class="lbl">Équivalent</span><span class="val">≈ 39 sem.</span></div>
+          <div class="row"><span class="lbl">● Réalisées</span><span class="val" style="color:var(--low)" id="h-stat-done">966 h</span></div>
+          <div class="row"><span class="lbl">○ Restantes</span><span class="val" style="color:var(--high)" id="h-stat-rest">589 h</span></div>
+          <div class="row"><span class="lbl">Avancement</span><span class="val" id="h-stat-pct">62 %</span></div>
+          <div class="row"><span class="lbl">Équivalent</span><span class="val" id="h-stat-sem">≈ 39 sem.</span></div>
         </div>
       </div>
       <!-- Colonne droite : barres par grand axe -->
@@ -409,7 +409,7 @@ footer b{color:var(--primary)}
 <!-- ===== INVENTAIRE (compact) ===== -->
 <div class="grid g3">
   <div class="card">
-    <h2>Inventaire v9</h2>
+    <h2 id="inv-version">Inventaire v10</h2>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
       <div class="kpi"><div class="big" id="inv-tot">—</div><div class="lbl">Fichiers</div></div>
       <div class="kpi"><div class="big" id="inv-can" style="color:var(--sage)">—</div><div class="lbl">Canon</div></div>
@@ -766,26 +766,37 @@ function renderAll() {
     CR.heure = new Chart(hCtx, {
       type: 'doughnut',
       data: {
-        labels: ['Réalisées (966 h)', 'Restantes (589 h)'],
+        labels: ['Réalisées (' + D.h_done + ' h)', 'Restantes (' + (D.h_total - D.h_done) + ' h)'],
         datasets: [{
-          data: [966, 589],
+          data: [D.h_done, D.h_total - D.h_done],
           backgroundColor: [P.lo, P.hi],
           borderColor: [cv('--card'), cv('--card')],
           borderWidth: 3
         }]
       },
       options: {
-        cutout: '62%', responsive: true, maintainAspectRatio: false,
+        cutout: Math.round(D.h_done/D.h_total*100) + '%', responsive: true, maintainAspectRatio: false,
         plugins: {
           legend: { position: 'bottom', labels: { font: {size:11}, color: P.p, boxWidth: 12, padding: 10 } },
-          tooltip: { callbacks: { label: c => c.label + ' · ' + Math.round(c.parsed/1555*100) + '%' } }
+          tooltip: { callbacks: { label: c => c.label + ' · ' + Math.round(c.parsed/D.h_total*100) + '%' } }
         }
       }
     });
-  }
+  // Mise à jour dynamique des stats heures
+  const _hd = D.h_done, _ht = D.h_total, _hr = _ht - _hd;
+  const _pct = Math.round(_hd/_ht*100);
+  const _sem = Math.round(_ht/40);
+  const _setTxt = (id, v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+  _setTxt('h-titre-done', _hd);
+  _setTxt('h-titre-tot',  _ht);
+  _setTxt('h-stat-done',  _hd + ' h');
+  _setTxt('h-stat-rest',  _hr + ' h');
+  _setTxt('h-stat-pct',   _pct + ' %');
+  _setTxt('h-stat-sem',   '≈ ' + _sem + ' sem.');
 
   // Inventaire
   const inv = D.inventaire||{};
+  _setTxt('inv-version', inv.majVersion ? inv.majVersion.split(' . ')[0] : 'Inventaire v10');
   document.getElementById('inv-tot').textContent = inv.fichiers||354;
   document.getElementById('inv-can').textContent = inv.canon||29;
   document.getElementById('inv-act').textContent = inv.actif||193;
