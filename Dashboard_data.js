@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 22/05/2026 09:19 -- MEMNM-2026
+// 22/05/2026 09:45 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-22",
-    "generated_full": "22/05/2026 09:19",
+    "generated_full": "22/05/2026 09:45",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,7 +36,7 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 72,
+  "global_pct": 74,
   "delta_global": 0,
   "chantiers": [
     {
@@ -52,7 +52,7 @@ const D = {
     {
       "code": "C",
       "nom": "Social Listening EAC",
-      "pct": 95
+      "pct": 97
     },
     {
       "code": "D",
@@ -62,7 +62,7 @@ const D = {
     {
       "code": "E",
       "nom": "Redaction P.I-II",
-      "pct": 85
+      "pct": 90
     },
     {
       "code": "F",
@@ -77,14 +77,14 @@ const D = {
     {
       "code": "H",
       "nom": "Finalisation",
-      "pct": 5
+      "pct": 20
     }
   ],
   "collecte": {
     "value": 203,
     "max": 322,
-    "vague": "Vague 1 (préparation)",
-    "date": "2026-05-21 00:00:00"
+    "vague": "Vague 1",
+    "date": "2026-05-22"
   },
   "delta_collecte": 0,
   "risques": {
@@ -99,8 +99,29 @@ const D = {
     "label": "Corrections residuelles Ch.14"
   },
   "inventaire": {
-    "fichiers": 354,
-    "majVersion": "Inventaire v9 . 22 May 2026"
+    "fichiers": 366,
+    "canon": 33,
+    "actif": 201,
+    "draft": 13,
+    "archive": 116,
+    "majVersion": "Inventaire v10 . 22 May 2026",
+    "dossiers": {
+      "00_Manuscrit_Master": 9,
+      "01_Drafts_Chapitres": 19,
+      "02_Livrables_DEC030": 6,
+      "03_Pilotage_Inventaire": 19,
+      "04_Bibliographie": 3,
+      "05_Diagnostic_Audit": 2,
+      "06_Enquete_Pilote": 28,
+      "07_Annexes_1-16": 28,
+      "08_SSOT_V7.2": 61,
+      "09_Scripts": 15,
+      "10_Social_Listening": 100,
+      "Racine": 4,
+      "_ARCHIVE": 65,
+      "_Dashboard_Public": 7,
+      "TOTAL": 366
+    }
   },
   "pages": [
     {
@@ -144,8 +165,8 @@ const D = {
     },
     {
       "nom": "Conclusion",
-      "courant": 0,
-      "cible": 15
+      "courant": 14,
+      "cible": 16
     },
     {
       "nom": "Bibliographie",
@@ -396,6 +417,42 @@ const D = {
       "risk": "CRITIQUE",
       "stat": "📅 Planifié",
       "retard": false
+    },
+    {
+      "r": "J17",
+      "n": "Introduction Générale v2 corrigée (B2 §9.D1)",
+      "ch": "Ch.2 Méthodo",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · §9.D1 phantom supprimé · 8 272 mots · Charte3_v2",
+      "retard": false
+    },
+    {
+      "r": "J18",
+      "n": "Conclusion Générale DRAFT v1 produite (A3)",
+      "ch": "Ch.0 / Fin",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · 5 sections · 3 948 mots · Charte3 · [DRAFT]",
+      "retard": false
+    },
+    {
+      "r": "J19",
+      "n": "POST-007 SIL_ALGO validé — BDD V1.6e",
+      "ch": "EAC P0",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · comparaison OSC-005 · moy=66v σ=25 · VALIDÉ [AZ]",
+      "retard": false
+    },
+    {
+      "r": "J20",
+      "n": "Dashboard_refresh.py patché (v10 + EAC V1.6e)",
+      "ch": "Pilotage",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
+      "retard": false
     }
   ],
   "jalons_retard": [
@@ -412,7 +469,7 @@ const D = {
   "eac": {
     "phase": "P1 -- En cours",
     "corpus_annote": 72,
-    "bdd_version": "V1.6c",
+    "bdd_version": "V1.6e",
     "posts_bruts": 81,
     "ref_version": "V1.9",
     "ref_entrees": 37,
@@ -443,7 +500,7 @@ const D = {
     "sil_algo": [
       {
         "ref": "POST-007",
-        "statut": "FAIBLE -- A confirmer"
+        "statut": "VALIDE [AZ] 22/05/2026 -- comparaison corpus OSC-005 (moy=66v, sigma=25, 37v=56% moy -- niche evenementielle)"
       },
       {
         "ref": "POST-042",
@@ -458,8 +515,8 @@ const D = {
       },
       {
         "id": "P1-2",
-        "desc": "Confirmer POST-007 SIL_ALGO",
-        "priorite": "Haute"
+        "desc": "✅ CLOS 22/05/2026 -- POST-007 VALIDE [AZ]",
+        "priorite": "✅ CLOS"
       },
       {
         "id": "P1-3",
@@ -482,7 +539,7 @@ const D = {
     "00_Manuscrit_Master": 15,
     "01_Drafts_Chapitres": 21,
     "02_Livrables_DEC030": 6,
-    "03_Pilotage_Inventaire": 20,
+    "03_Pilotage_Inventaire": 21,
     "04_Bibliographie": 3,
     "05_Diagnostic_Audit": 2,
     "06_Enquete_Pilote": 29,
@@ -491,10 +548,10 @@ const D = {
     "09_Scripts": 31,
     "10_Social_Listening": 102,
     "_ARCHIVE": 79,
-    "__total__": 396,
+    "__total__": 397,
     "__date__": "2026-05-22"
   },
-  "delta_fichiers": 42,
+  "delta_fichiers": 31,
   "chapitres": [],
   "heures": [
     {
