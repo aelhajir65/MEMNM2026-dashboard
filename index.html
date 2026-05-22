@@ -782,6 +782,7 @@ function renderAll() {
         }
       }
     });
+  }  // end if (hCtx)
   // Mise à jour dynamique des stats heures
   const _hd = D.h_done, _ht = D.h_total, _hr = _ht - _hd;
   const _pct = Math.round(_hd/_ht*100);
@@ -805,6 +806,4 @@ function renderAll() {
 
 renderAll();
 renderCal();
-</script>
-</body>
-</html>
+</s
