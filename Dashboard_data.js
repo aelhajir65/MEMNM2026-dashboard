@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 22/05/2026 20:12 -- MEMNM-2026
+// 23/05/2026 14:11 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-05-22",
-    "generated_full": "22/05/2026 20:12",
+    "generated": "2026-05-23",
+    "generated_full": "23/05/2026 14:11",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -104,7 +104,7 @@ const D = {
     "actif": 201,
     "draft": 13,
     "archive": 116,
-    "majVersion": "Inventaire v10 . 22 May 2026",
+    "majVersion": "Inventaire v10 . 23 May 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -425,7 +425,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · §9.D1 phantom supprimé · 8 272 mots · Charte3_v2",
-      "retard": false
+      "retard": true
     },
     {
       "r": "J18",
@@ -434,7 +434,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · 5 sections · 3 948 mots · Charte3 · [DRAFT]",
-      "retard": false
+      "retard": true
     },
     {
       "r": "J19",
@@ -443,7 +443,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · comparaison OSC-005 · moy=66v σ=25 · VALIDÉ [AZ]",
-      "retard": false
+      "retard": true
     },
     {
       "r": "J20",
@@ -452,7 +452,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
-      "retard": false
+      "retard": true
     }
   ],
   "jalons_retard": [
@@ -463,6 +463,42 @@ const D = {
       "d": "11 mai 2026",
       "risk": "Élevé",
       "stat": "✅ Terminé",
+      "retard": true
+    },
+    {
+      "r": "J17",
+      "n": "Introduction Générale v2 corrigée (B2 §9.D1)",
+      "ch": "Ch.2 Méthodo",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · §9.D1 phantom supprimé · 8 272 mots · Charte3_v2",
+      "retard": true
+    },
+    {
+      "r": "J18",
+      "n": "Conclusion Générale DRAFT v1 produite (A3)",
+      "ch": "Ch.0 / Fin",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · 5 sections · 3 948 mots · Charte3 · [DRAFT]",
+      "retard": true
+    },
+    {
+      "r": "J19",
+      "n": "POST-007 SIL_ALGO validé — BDD V1.6e",
+      "ch": "EAC P0",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · comparaison OSC-005 · moy=66v σ=25 · VALIDÉ [AZ]",
+      "retard": true
+    },
+    {
+      "r": "J20",
+      "n": "Dashboard_refresh.py patché (v10 + EAC V1.6e)",
+      "ch": "Pilotage",
+      "d": "22 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
       "retard": true
     }
   ],
@@ -540,18 +576,18 @@ const D = {
     "01_Drafts_Chapitres": 21,
     "02_Livrables_DEC030": 6,
     "03_Pilotage_Inventaire": 20,
-    "04_Bibliographie": 4,
+    "04_Bibliographie": 5,
     "05_Diagnostic_Audit": 2,
     "06_Enquete_Pilote": 29,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 34,
+    "09_Scripts": 35,
     "10_Social_Listening": 103,
     "_ARCHIVE": 79,
-    "__total__": 401,
-    "__date__": "2026-05-22"
+    "__total__": 403,
+    "__date__": "2026-05-23"
   },
-  "delta_fichiers": 35,
+  "delta_fichiers": 37,
   "chapitres": [],
   "heures": [
     {
