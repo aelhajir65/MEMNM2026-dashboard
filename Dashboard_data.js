@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 24/05/2026 21:05 -- MEMNM-2026
+// 24/05/2026 21:09 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-24",
-    "generated_full": "24/05/2026 21:05",
+    "generated_full": "24/05/2026 21:09",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,8 +36,8 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 74,
-  "delta_global": 0,
+  "global_pct": 76,
+  "delta_global": 2,
   "chantiers": [
     {
       "code": "A",
@@ -67,7 +67,7 @@ const D = {
     {
       "code": "F",
       "nom": "Redaction P.III",
-      "pct": 35
+      "pct": 60
     },
     {
       "code": "G",
@@ -81,12 +81,12 @@ const D = {
     }
   ],
   "collecte": {
-    "value": 203,
+    "value": 225,
     "max": 322,
     "vague": "Vague 1",
-    "date": "2026-05-22"
+    "date": "2026-05-24 00:00:00"
   },
-  "delta_collecte": 0,
+  "delta_collecte": 22,
   "risques": {
     "crit": 1,
     "mid": 4
@@ -453,6 +453,15 @@ const D = {
       "risk": "Faible",
       "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
       "retard": true
+    },
+    {
+      "r": "J21",
+      "n": "Ch.13 MASTER v1 produit + Glossaire IMN v1.0",
+      "ch": "F+G / Pilotage",
+      "d": "24 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
+      "retard": false
     }
   ],
   "jalons_retard": [
