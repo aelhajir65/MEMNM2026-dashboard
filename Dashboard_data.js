@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 25/05/2026 19:00 -- MEMNM-2026
+// 25/05/2026 19:15 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-25",
-    "generated_full": "25/05/2026 19:00",
+    "generated_full": "25/05/2026 19:15",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -469,7 +469,7 @@ const D = {
       "ch": "A",
       "d": "25 mai 2026",
       "risk": "Élevé",
-      "stat": "🟡Terminé· email ciblé 97 OSC non-répondants · 25/05/2026",
+      "stat": "✅ Terminé · email ciblé 97 OSC non-répondants · 25/05/2026",
       "retard": false
     },
     {
@@ -478,7 +478,7 @@ const D = {
       "ch": "B",
       "d": "Juin 2026",
       "risk": "Moyen",
-      "stat": "Terminé · relance terrain enquêteurs + OSC · 25/05/2026",
+      "stat": "✅ Terminé · relance terrain enquêteurs + OSC · 25/05/2026",
       "retard": false
     }
   ],
