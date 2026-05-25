@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 24/05/2026 21:09 -- MEMNM-2026
+// 25/05/2026 06:20 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-05-24",
-    "generated_full": "24/05/2026 21:09",
+    "generated": "2026-05-25",
+    "generated_full": "25/05/2026 06:20",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -37,7 +37,7 @@ const D = {
     }
   },
   "global_pct": 76,
-  "delta_global": 2,
+  "delta_global": 0,
   "chantiers": [
     {
       "code": "A",
@@ -86,7 +86,7 @@ const D = {
     "vague": "Vague 1",
     "date": "2026-05-24 00:00:00"
   },
-  "delta_collecte": 22,
+  "delta_collecte": 0,
   "risques": {
     "crit": 1,
     "mid": 4
@@ -104,7 +104,7 @@ const D = {
     "actif": 201,
     "draft": 13,
     "archive": 116,
-    "majVersion": "Inventaire v10 . 24 May 2026",
+    "majVersion": "Inventaire v10 . 25 May 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -461,7 +461,7 @@ const D = {
       "d": "24 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
-      "retard": false
+      "retard": true
     }
   ],
   "jalons_retard": [
@@ -508,6 +508,15 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
+      "retard": true
+    },
+    {
+      "r": "J21",
+      "n": "Ch.13 MASTER v1 produit + Glossaire IMN v1.0",
+      "ch": "F+G / Pilotage",
+      "d": "24 mai 2026",
+      "risk": "Faible",
+      "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
       "retard": true
     }
   ],
@@ -590,13 +599,13 @@ const D = {
     "06_Enquete_Pilote": 29,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 37,
+    "09_Scripts": 38,
     "10_Social_Listening": 103,
     "_ARCHIVE": 79,
-    "__total__": 410,
-    "__date__": "2026-05-24"
+    "__total__": 411,
+    "__date__": "2026-05-25"
   },
-  "delta_fichiers": 44,
+  "delta_fichiers": 45,
   "chapitres": [],
   "heures": [
     {
