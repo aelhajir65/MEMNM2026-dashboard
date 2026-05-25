@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 25/05/2026 06:20 -- MEMNM-2026
+// 25/05/2026 18:56 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-25",
-    "generated_full": "25/05/2026 06:20",
+    "generated_full": "25/05/2026 18:56",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -84,7 +84,7 @@ const D = {
     "value": 225,
     "max": 322,
     "vague": "Vague 1",
-    "date": "2026-05-24 00:00:00"
+    "date": "2026-05-25"
   },
   "delta_collecte": 0,
   "risques": {
@@ -462,6 +462,24 @@ const D = {
       "risk": "Faible",
       "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
       "retard": true
+    },
+    {
+      "r": "J22",
+      "n": "Rappel n°3 enquête quantitative (N=225→322)",
+      "ch": "A",
+      "d": "25 mai 2026",
+      "risk": "Élevé",
+      "stat": "🟡 En cours · email ciblé 97 OSC non-répondants · 25/05/2026",
+      "retard": false
+    },
+    {
+      "r": "J23",
+      "n": "Rappel n°2 entretiens qualitatifs EAC/EAKA",
+      "ch": "B",
+      "d": "Juin 2026",
+      "risk": "Moyen",
+      "stat": "🟡 En cours · relance terrain enquêteurs + OSC · 25/05/2026",
+      "retard": false
     }
   ],
   "jalons_retard": [
@@ -593,7 +611,7 @@ const D = {
     "00_Manuscrit_Master": 15,
     "01_Drafts_Chapitres": 22,
     "02_Livrables_DEC030": 6,
-    "03_Pilotage_Inventaire": 23,
+    "03_Pilotage_Inventaire": 24,
     "04_Bibliographie": 6,
     "05_Diagnostic_Audit": 2,
     "06_Enquete_Pilote": 29,
@@ -602,10 +620,10 @@ const D = {
     "09_Scripts": 38,
     "10_Social_Listening": 103,
     "_ARCHIVE": 79,
-    "__total__": 411,
+    "__total__": 412,
     "__date__": "2026-05-25"
   },
-  "delta_fichiers": 45,
+  "delta_fichiers": 46,
   "chapitres": [],
   "heures": [
     {
