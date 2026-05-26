@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 25/05/2026 19:29 -- MEMNM-2026
+// 26/05/2026 12:47 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-05-25",
-    "generated_full": "25/05/2026 19:29",
+    "generated": "2026-05-26",
+    "generated_full": "26/05/2026 12:47",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -84,9 +84,9 @@ const D = {
     "value": 231,
     "max": 322,
     "vague": "Vague 1",
-    "date": "2026-05-25 00:00:00"
+    "date": "2026-05-25"
   },
-  "delta_collecte": 6,
+  "delta_collecte": 0,
   "risques": {
     "crit": 1,
     "mid": 4
@@ -104,7 +104,7 @@ const D = {
     "actif": 201,
     "draft": 13,
     "archive": 116,
-    "majVersion": "Inventaire v10 . 25 May 2026",
+    "majVersion": "Inventaire v10 . 26 May 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -465,12 +465,12 @@ const D = {
     },
     {
       "r": "J22",
-      "n": "Rappel n°3 enquête quantitative (N=225→322)",
+      "n": "Rappel n°3 enquête quantitative (N=231→322)",
       "ch": "A",
       "d": "25 mai 2026",
       "risk": "Élevé",
-      "stat": "✅ Terminé · email ciblé 97 OSC non-répondants · 25/05/2026",
-      "retard": false
+      "stat": "🟡 En cours · email ciblé 91 OSC non-répondants · 25/05/2026",
+      "retard": true
     },
     {
       "r": "J23",
@@ -478,7 +478,7 @@ const D = {
       "ch": "B",
       "d": "Juin 2026",
       "risk": "Moyen",
-      "stat": "✅ Terminé · relance terrain enquêteurs + OSC · 25/05/2026",
+      "stat": "🟡 En cours · relance terrain enquêteurs + OSC · 25/05/2026",
       "retard": false
     }
   ],
@@ -535,6 +535,15 @@ const D = {
       "d": "24 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
+      "retard": true
+    },
+    {
+      "r": "J22",
+      "n": "Rappel n°3 enquête quantitative (N=231→322)",
+      "ch": "A",
+      "d": "25 mai 2026",
+      "risk": "Élevé",
+      "stat": "🟡 En cours · email ciblé 91 OSC non-répondants · 25/05/2026",
       "retard": true
     }
   ],
@@ -617,13 +626,13 @@ const D = {
     "06_Enquete_Pilote": 29,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 39,
+    "09_Scripts": 40,
     "10_Social_Listening": 103,
     "_ARCHIVE": 79,
-    "__total__": 413,
-    "__date__": "2026-05-25"
+    "__total__": 414,
+    "__date__": "2026-05-26"
   },
-  "delta_fichiers": 47,
+  "delta_fichiers": 48,
   "chapitres": [],
   "heures": [
     {
