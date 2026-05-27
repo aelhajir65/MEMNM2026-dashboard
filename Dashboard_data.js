@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 27/05/2026 08:23 -- MEMNM-2026
+// 27/05/2026 10:45 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-05-27",
-    "generated_full": "27/05/2026 08:23",
+    "generated_full": "27/05/2026 10:45",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -326,7 +326,7 @@ const D = {
       "d": "11 mai 2026",
       "risk": "Élevé",
       "stat": "✅ Terminé",
-      "retard": true
+      "retard": false
     },
     {
       "r": "J7",
@@ -425,7 +425,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · §9.D1 phantom supprimé · 8 272 mots · Charte3_v2",
-      "retard": true
+      "retard": false
     },
     {
       "r": "J18",
@@ -434,7 +434,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · 5 sections · 3 948 mots · Charte3 · [DRAFT]",
-      "retard": true
+      "retard": false
     },
     {
       "r": "J19",
@@ -443,7 +443,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · comparaison OSC-005 · moy=66v σ=25 · VALIDÉ [AZ]",
-      "retard": true
+      "retard": false
     },
     {
       "r": "J20",
@@ -452,7 +452,7 @@ const D = {
       "d": "22 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
-      "retard": true
+      "retard": false
     },
     {
       "r": "J21",
@@ -461,16 +461,16 @@ const D = {
       "d": "24 mai 2026",
       "risk": "Faible",
       "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
-      "retard": true
+      "retard": false
     },
     {
       "r": "J22",
       "n": "Rappel n°3 enquête quantitative (N=231→322)",
       "ch": "A",
-      "d": "25 mai 2026",
+      "d": "2026-05-26 00:00:00",
       "risk": "Élevé",
-      "stat": "🟡 En cours · email ciblé 91 OSC non-répondants · 25/05/2026",
-      "retard": true
+      "stat": "✅ Terminé · Email ciblé 91 OSC non-répondants · 26/05/2026",
+      "retard": false
     },
     {
       "r": "J23",
@@ -478,75 +478,11 @@ const D = {
       "ch": "B",
       "d": "Juin 2026",
       "risk": "Moyen",
-      "stat": "🟡 En cours · relance terrain enquêteurs + OSC · 25/05/2026",
+      "stat": "✅ Terminé ·  relance terrain enquêteurs + OSC · 25/05/2026",
       "retard": false
     }
   ],
-  "jalons_retard": [
-    {
-      "r": "J6",
-      "n": "Envoi Relance Vague 3 (ultime)",
-      "ch": "A",
-      "d": "11 mai 2026",
-      "risk": "Élevé",
-      "stat": "✅ Terminé",
-      "retard": true
-    },
-    {
-      "r": "J17",
-      "n": "Introduction Générale v2 corrigée (B2 §9.D1)",
-      "ch": "Ch.2 Méthodo",
-      "d": "22 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · §9.D1 phantom supprimé · 8 272 mots · Charte3_v2",
-      "retard": true
-    },
-    {
-      "r": "J18",
-      "n": "Conclusion Générale DRAFT v1 produite (A3)",
-      "ch": "Ch.0 / Fin",
-      "d": "22 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · 5 sections · 3 948 mots · Charte3 · [DRAFT]",
-      "retard": true
-    },
-    {
-      "r": "J19",
-      "n": "POST-007 SIL_ALGO validé — BDD V1.6e",
-      "ch": "EAC P0",
-      "d": "22 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · comparaison OSC-005 · moy=66v σ=25 · VALIDÉ [AZ]",
-      "retard": true
-    },
-    {
-      "r": "J20",
-      "n": "Dashboard_refresh.py patché (v10 + EAC V1.6e)",
-      "ch": "Pilotage",
-      "d": "22 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · Inventaire v10 · POST-007 VALIDÉ · Conclusion détectée",
-      "retard": true
-    },
-    {
-      "r": "J21",
-      "n": "Ch.13 MASTER v1 produit + Glossaire IMN v1.0",
-      "ch": "F+G / Pilotage",
-      "d": "24 mai 2026",
-      "risk": "Faible",
-      "stat": "✅ Terminé · Ch.13 v4→MASTER (BDD V1.6e · §13.SL P0/P1 intégré) · Glossaire 35 entrées Charte3",
-      "retard": true
-    },
-    {
-      "r": "J22",
-      "n": "Rappel n°3 enquête quantitative (N=231→322)",
-      "ch": "A",
-      "d": "25 mai 2026",
-      "risk": "Élevé",
-      "stat": "🟡 En cours · email ciblé 91 OSC non-répondants · 25/05/2026",
-      "retard": true
-    }
-  ],
+  "jalons_retard": [],
   "eac": {
     "phase": "P1 -- En cours",
     "corpus_annote": 72,
