@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 01/06/2026 13:24 -- MEMNM-2026
+// 01/06/2026 18:20 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-01",
-    "generated_full": "01/06/2026 13:24",
+    "generated_full": "01/06/2026 18:20",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,7 +36,7 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 78,
+  "global_pct": 81,
   "delta_global": 0,
   "chantiers": [
     {
@@ -47,7 +47,7 @@ const D = {
     {
       "code": "B",
       "nom": "Qualitatif EAKA/SAWT",
-      "pct": 1
+      "pct": 100
     },
     {
       "code": "C",
@@ -615,7 +615,7 @@ const D = {
     {
       "axe": "Collecte qualitative EAKA/SAWT",
       "h": 150,
-      "done": 0.5
+      "done": 1.0
     },
     {
       "axe": "Social Listening EAC",
@@ -676,5 +676,5 @@ const D = {
     ]
   },
   "h_total": 1555,
-  "h_done": 1019
+  "h_done": 1094
 };
