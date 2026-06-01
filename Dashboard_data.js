@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 01/06/2026 11:02 -- MEMNM-2026
+// 01/06/2026 13:19 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-01",
-    "generated_full": "01/06/2026 11:02",
+    "generated_full": "01/06/2026 13:19",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -37,7 +37,7 @@ const D = {
     }
   },
   "global_pct": 78,
-  "delta_global": 2,
+  "delta_global": 0,
   "chantiers": [
     {
       "code": "A",
@@ -47,7 +47,7 @@ const D = {
     {
       "code": "B",
       "nom": "Qualitatif EAKA/SAWT",
-      "pct": 75
+      "pct": 1
     },
     {
       "code": "C",
@@ -86,7 +86,7 @@ const D = {
     "vague": "Vague 1",
     "date": "2026-05-31 00:00:00"
   },
-  "delta_collecte": 71,
+  "delta_collecte": 0,
   "risques": {
     "crit": 1,
     "mid": 4
@@ -352,7 +352,7 @@ const D = {
       "ch": "B",
       "d": "Juin 2026",
       "risk": "Moyen",
-      "stat": "🟡 En cours · 15/23 réalisés ✅ · 8 en attente · Codage D1 15/15 · Cible 20+ juin 2026",
+      "stat": "✅ Terminé · 23/23 réalisés · Codage D1 complet · 01/06/2026",
       "retard": false
     },
     {
@@ -559,16 +559,16 @@ const D = {
     "03_Pilotage_Inventaire": 27,
     "04_Bibliographie": 6,
     "05_Diagnostic_Audit": 3,
-    "06_Enquete_Pilote": 57,
+    "06_Enquete_Pilote": 66,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 42,
+    "09_Scripts": 44,
     "10_Social_Listening": 103,
     "_ARCHIVE": 79,
-    "__total__": 450,
+    "__total__": 461,
     "__date__": "2026-06-01"
   },
-  "delta_fichiers": 64,
+  "delta_fichiers": 75,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
