@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 01/06/2026 22:51 -- MEMNM-2026
+// 02/06/2026 00:26 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-06-01",
-    "generated_full": "01/06/2026 22:51",
+    "generated": "2026-06-02",
+    "generated_full": "02/06/2026 00:26",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -37,7 +37,7 @@ const D = {
     }
   },
   "global_pct": 81,
-  "delta_global": 0,
+  "delta_global": 6,
   "chantiers": [
     {
       "code": "A",
@@ -86,7 +86,7 @@ const D = {
     "vague": "Vague 1",
     "date": "2026-06-01 00:00:00"
   },
-  "delta_collecte": 13,
+  "delta_collecte": 84,
   "risques": {
     "crit": 1,
     "mid": 4
@@ -104,7 +104,7 @@ const D = {
     "actif": 201,
     "draft": 13,
     "archive": 116,
-    "majVersion": "Inventaire v11 . 01 Jun 2026",
+    "majVersion": "Inventaire v11 . 02 Jun 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -344,7 +344,7 @@ const D = {
       "d": "Juin 2026",
       "risk": "CRITIQUE",
       "stat": "📅 Planifié",
-      "retard": false
+      "retard": true
     },
     {
       "r": "J9",
@@ -482,7 +482,17 @@ const D = {
       "retard": false
     }
   ],
-  "jalons_retard": [],
+  "jalons_retard": [
+    {
+      "r": "J8",
+      "n": "CLÔTURE COLLECTE QUANT. ≥ 322",
+      "ch": "A",
+      "d": "Juin 2026",
+      "risk": "CRITIQUE",
+      "stat": "📅 Planifié",
+      "retard": true
+    }
+  ],
   "eac": {
     "phase": "P1 -- En cours",
     "corpus_annote": 72,
@@ -555,9 +565,9 @@ const D = {
   "filesystem": {
     "00_Manuscrit_Master": 16,
     "01_Drafts_Chapitres": 25,
-    "02_Livrables_DEC030": 7,
+    "02_Livrables_DEC030": 10,
     "03_Pilotage_Inventaire": 27,
-    "04_Bibliographie": 6,
+    "04_Bibliographie": 7,
     "05_Diagnostic_Audit": 3,
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 27,
@@ -565,10 +575,10 @@ const D = {
     "09_Scripts": 44,
     "10_Social_Listening": 103,
     "_ARCHIVE": 89,
-    "__total__": 465,
-    "__date__": "2026-06-01"
+    "__total__": 469,
+    "__date__": "2026-06-02"
   },
-  "delta_fichiers": 79,
+  "delta_fichiers": 83,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
