@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 03/06/2026 22:23 -- MEMNM-2026
+// 03/06/2026 22:28 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-03",
-    "generated_full": "03/06/2026 22:23",
+    "generated_full": "03/06/2026 22:28",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,7 +36,7 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 82,
+  "global_pct": 83,
   "delta_global": 0,
   "chantiers": [
     {
@@ -67,7 +67,7 @@ const D = {
     {
       "code": "F",
       "nom": "Redaction P.III",
-      "pct": 80
+      "pct": 85
     },
     {
       "code": "G",
@@ -566,13 +566,13 @@ const D = {
     "00_Manuscrit_Master": 16,
     "01_Drafts_Chapitres": 26,
     "02_Livrables_DEC030": 10,
-    "03_Pilotage_Inventaire": 27,
+    "03_Pilotage_Inventaire": 28,
     "04_Bibliographie": 7,
     "05_Diagnostic_Audit": 3,
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 53,
+    "09_Scripts": 52,
     "10_Social_Listening": 107,
     "_ARCHIVE": 86,
     "__total__": 480,
