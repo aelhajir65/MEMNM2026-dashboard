@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 04/06/2026 12:00 -- MEMNM-2026
+// 04/06/2026 15:15 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-04",
-    "generated_full": "04/06/2026 12:00",
+    "generated_full": "04/06/2026 15:15",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -99,12 +99,12 @@ const D = {
     "label": "Corrections residuelles Ch.14"
   },
   "inventaire": {
-    "fichiers": 386,
-    "canon": 33,
-    "actif": 201,
-    "draft": 13,
-    "archive": 116,
-    "majVersion": "Inventaire v11 . 04 Jun 2026",
+    "fichiers": 448,
+    "canon": 0,
+    "actif": 369,
+    "draft": 0,
+    "archive": 56,
+    "majVersion": "Inventaire v12 . 04 Jun 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -562,13 +562,13 @@ const D = {
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 71,
+    "09_Scripts": 70,
     "10_Social_Listening": 107,
     "_ARCHIVE": 86,
-    "__total__": 503,
+    "__total__": 502,
     "__date__": "2026-06-04"
   },
-  "delta_fichiers": 117,
+  "delta_fichiers": 54,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
