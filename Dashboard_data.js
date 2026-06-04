@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 04/06/2026 15:29 -- MEMNM-2026
+// 04/06/2026 17:46 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-04",
-    "generated_full": "04/06/2026 15:29",
+    "generated_full": "04/06/2026 17:46",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -553,7 +553,7 @@ const D = {
     ]
   },
   "filesystem": {
-    "00_Manuscrit_Master": 18,
+    "00_Manuscrit_Master": 20,
     "01_Drafts_Chapitres": 26,
     "02_Livrables_DEC030": 10,
     "03_Pilotage_Inventaire": 30,
@@ -562,13 +562,13 @@ const D = {
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 70,
+    "09_Scripts": 65,
     "10_Social_Listening": 107,
-    "_ARCHIVE": 86,
-    "__total__": 502,
+    "_ARCHIVE": 88,
+    "__total__": 501,
     "__date__": "2026-06-04"
   },
-  "delta_fichiers": 54,
+  "delta_fichiers": 53,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
