@@ -253,12 +253,12 @@ footer b{color:var(--primary)}
   <div class="card">
     <h2>Collecte quantitative</h2>
     <div class="gauge-wrap"><canvas id="g_collecte"></canvas></div>
-    <div class="kpi"><div class="ctx">Quota min. 322 · <b>N=625 validées</b> · Collecte FERMÉE</div></div>
+    <div class="kpi"><div class="ctx">Quota min. 322 · Clôture juin 2026</div></div>
   </div>
   <div class="card">
     <h2>EAC &amp; Collecte qualitative</h2>
     <div class="gauge-wrap"><canvas id="g_eac"></canvas></div>
-    <div class="kpi"><div class="ctx">Phase P1 · BDD V1.6e · N=72 · κ=0.7437</div></div>
+    <div class="kpi"><div class="ctx">Phase P1 · BDD V1.6c · N=72 · κ=0.7437</div></div>
   </div>
 </div>
 
@@ -304,7 +304,7 @@ footer b{color:var(--primary)}
 <div class="section-label">④ Avancement par chantier A–H</div>
 <div class="grid" style="grid-template-columns:1fr">
   <div class="card">
-    <h2>Chantiers A–H · Pilotage V7</h2>
+    <h2>Chantiers A–H · Pilotage V3</h2>
     <div class="bar-wrap"><canvas id="b_chantiers"></canvas></div>
     <div id="moy-badge"></div>
   </div>
@@ -418,24 +418,24 @@ footer b{color:var(--primary)}
     </div>
   </div>
   <div class="card" style="grid-column:span 2">
-    <h2>Collecte finale — Détail</h2>
+    <h2>Collecte J1 — Détail</h2>
     <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
       <div class="kpi">
-        <div class="big"><span id="coll-val">625</span><span style="font-size:1rem;color:var(--muted)"> / <span id="coll-max">322</span></span></div>
+        <div class="big">625<span style="font-size:1rem;color:var(--muted)"> / 322</span></div>
         <div class="lbl">Réponses validées</div>
       </div>
       <div style="flex:1;min-width:200px">
         <div style="height:20px;background:var(--border);border-radius:4px;overflow:hidden">
-          <div id="coll-bar" style="height:100%;width:100%;background:var(--sage);border-radius:4px;transition:width .6s"></div>
+          <div style="height:100%;width:100%;background:var(--sage);border-radius:4px;transition:width .6s"></div>
         </div>
-        <div id="coll-lbl" style="font-size:11px;color:var(--muted);margin-top:4px">194% du quota · N=625 validées · Collecte FERMÉE</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">194% du quota · N=625 validées · Collecte FERMÉE</div>
       </div>
     </div>
   </div>
 </div>
 
 <footer>
-  <span>Sources : <b>Pilotage V7 · Inventaire v12 · BDD EAC V1.6e</b></span>
+  <span>Sources : <b>Pilotage V3 · Inventaire v9 · BDD EAC V1.6c</b></span>
   <span>MEMNM-2026 · CERSS · <span id="ts-footer">…</span></span>
 </footer>
 
@@ -621,17 +621,6 @@ function renderAll() {
 
   gauge('g_global',   D.global_pct,        100,          P.p,  D.global_pct + '%');
   gauge('g_collecte', D.collecte.value,     D.collecte.max, P.a,  D.collecte.value + '');
-  // Collecte finale — carte dynamique
-  (function() {
-    var cv = D.collecte.value, cm = D.collecte.max || 322;
-    var pct = Math.min(100, Math.round(cv / cm * 100));
-    var raw_pct = Math.round(cv / cm * 100);
-    _setTxt('coll-val', cv);
-    _setTxt('coll-max', cm);
-    var bar = document.getElementById('coll-bar');
-    if (bar) bar.style.width = pct + '%';
-    _setTxt('coll-lbl', raw_pct + '% du quota · N=' + cv + ' validées · ' + (raw_pct >= 100 ? 'Collecte FERMÉE ✅' : D.collecte.vague + ' en cours'));
-  })();
   gauge('g_eac',      D.eac.corpus_annote,  80,           P.sg, D.eac.corpus_annote + ' posts');
 
   // Pages
