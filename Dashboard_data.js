@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 04/06/2026 06:11 -- MEMNM-2026
+// 04/06/2026 06:17 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-04",
-    "generated_full": "04/06/2026 06:11",
+    "generated_full": "04/06/2026 06:17",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -343,8 +343,8 @@ const D = {
       "ch": "A",
       "d": "Juin 2026",
       "risk": "CRITIQUE",
-      "stat": "📅 Planifié",
-      "retard": true
+      "stat": "✅ Terminé",
+      "retard": false
     },
     {
       "r": "J9",
@@ -482,17 +482,7 @@ const D = {
       "retard": false
     }
   ],
-  "jalons_retard": [
-    {
-      "r": "J8",
-      "n": "CLÔTURE COLLECTE QUANT. ≥ 322",
-      "ch": "A",
-      "d": "Juin 2026",
-      "risk": "CRITIQUE",
-      "stat": "📅 Planifié",
-      "retard": true
-    }
-  ],
+  "jalons_retard": [],
   "eac": {
     "phase": "P1 -- En cours",
     "corpus_annote": 72,
