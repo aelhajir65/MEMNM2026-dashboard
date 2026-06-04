@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 04/06/2026 06:17 -- MEMNM-2026
+// 04/06/2026 06:38 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-04",
-    "generated_full": "04/06/2026 06:17",
+    "generated_full": "04/06/2026 06:38",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -343,8 +343,8 @@ const D = {
       "ch": "A",
       "d": "Juin 2026",
       "risk": "CRITIQUE",
-      "stat": "✅ Terminé",
-      "retard": false
+      "stat": "📅 Planifié",
+      "retard": true
     },
     {
       "r": "J9",
@@ -482,7 +482,17 @@ const D = {
       "retard": false
     }
   ],
-  "jalons_retard": [],
+  "jalons_retard": [
+    {
+      "r": "J8",
+      "n": "CLÔTURE COLLECTE QUANT. ≥ 322",
+      "ch": "A",
+      "d": "Juin 2026",
+      "risk": "CRITIQUE",
+      "stat": "📅 Planifié",
+      "retard": true
+    }
+  ],
   "eac": {
     "phase": "P1 -- En cours",
     "corpus_annote": 72,
@@ -562,13 +572,13 @@ const D = {
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 60,
+    "09_Scripts": 66,
     "10_Social_Listening": 107,
     "_ARCHIVE": 86,
-    "__total__": 490,
+    "__total__": 496,
     "__date__": "2026-06-04"
   },
-  "delta_fichiers": 104,
+  "delta_fichiers": 110,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
