@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 06/06/2026 15:57 -- MEMNM-2026
+// 07/06/2026 00:56 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-06-06",
-    "generated_full": "06/06/2026 15:57",
+    "generated": "2026-06-07",
+    "generated_full": "07/06/2026 00:56",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -62,7 +62,7 @@ const D = {
     {
       "code": "E",
       "nom": "Redaction P.I-II",
-      "pct": 95
+      "pct": 97
     },
     {
       "code": "F",
@@ -104,7 +104,7 @@ const D = {
     "actif": 369,
     "draft": 0,
     "archive": 56,
-    "majVersion": "Inventaire v12 . 06 Jun 2026",
+    "majVersion": "Inventaire v12 . 07 Jun 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -562,13 +562,13 @@ const D = {
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 27,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 67,
-    "10_Social_Listening": 115,
-    "_ARCHIVE": 88,
-    "__total__": 513,
-    "__date__": "2026-06-06"
+    "09_Scripts": 68,
+    "10_Social_Listening": 117,
+    "_ARCHIVE": 89,
+    "__total__": 517,
+    "__date__": "2026-06-07"
   },
-  "delta_fichiers": 65,
+  "delta_fichiers": 69,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
@@ -590,17 +590,17 @@ const D = {
     {
       "axe": "Redaction Partie I-II",
       "h": 320,
-      "done": 0.95
+      "done": 0.97
     },
     {
       "axe": "Redaction Partie III",
       "h": 180,
-      "done": 0.37
+      "done": 0.92
     },
     {
       "axe": "Redaction Partie IV",
       "h": 220,
-      "done": 0.82
+      "done": 0.97
     },
     {
       "axe": "Finalisation & assemblage",
@@ -610,7 +610,7 @@ const D = {
     {
       "axe": "Collecte quantitative",
       "h": 200,
-      "done": 0.7
+      "done": 0.85
     },
     {
       "axe": "Collecte qualitative EAKA/SAWT",
@@ -625,7 +625,7 @@ const D = {
     {
       "axe": "Stats & Scoring IMN",
       "h": 80,
-      "done": 0.0
+      "done": 0.35
     },
     {
       "axe": "Bibliographie & documentation",
@@ -676,5 +676,5 @@ const D = {
     ]
   },
   "h_total": 1555,
-  "h_done": 1114
+  "h_done": 1310
 };
