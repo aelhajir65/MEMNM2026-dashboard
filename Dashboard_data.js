@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 11/06/2026 04:25 -- MEMNM-2026
+// 11/06/2026 07:34 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-11",
-    "generated_full": "11/06/2026 04:25",
+    "generated_full": "11/06/2026 07:34",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -234,13 +234,13 @@ const D = {
       "ref": "10",
       "nom": "Annexe 10 -- Pseudo-code scoring IMN",
       "pages": 1,
-      "etat": "A produire"
+      "etat": "Finalise"
     },
     {
       "ref": "11",
       "nom": "Annexe 17 -- Budget previsionnel detaille",
       "pages": 1,
-      "etat": "A produire"
+      "etat": "Finalise"
     },
     {
       "ref": "12",
@@ -258,19 +258,19 @@ const D = {
       "ref": "14",
       "nom": "Annexe 14 V2 -- Guide focus groups (V.Finale)",
       "pages": 1,
-      "etat": "Finalise"
+      "etat": "A produire"
     },
     {
       "ref": "15",
       "nom": "Annexe 15 V4.1 -- Protocole EAC (V.Finale)",
       "pages": 1,
-      "etat": "A produire"
+      "etat": "Finalise"
     },
     {
       "ref": "16",
       "nom": "Annexe 16 -- Scripts analytiques",
       "pages": 1,
-      "etat": "A produire"
+      "etat": "Finalise"
     }
   ],
   "jalons": [
@@ -556,19 +556,19 @@ const D = {
     "00_Manuscrit_Master": 23,
     "01_Drafts_Chapitres": 26,
     "02_Livrables_DEC030": 10,
-    "03_Pilotage_Inventaire": 36,
+    "03_Pilotage_Inventaire": 38,
     "04_Bibliographie": 8,
     "05_Diagnostic_Audit": 3,
     "06_Enquete_Pilote": 57,
-    "07_Annexes_1-16": 39,
+    "07_Annexes_1-16": 47,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 86,
+    "09_Scripts": 87,
     "10_Social_Listening": 119,
     "_ARCHIVE": 90,
-    "__total__": 558,
+    "__total__": 569,
     "__date__": "2026-06-11"
   },
-  "delta_fichiers": 110,
+  "delta_fichiers": 121,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
