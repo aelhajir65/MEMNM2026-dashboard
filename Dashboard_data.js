@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 11/06/2026 12:51 -- MEMNM-2026
+// 11/06/2026 14:53 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-11",
-    "generated_full": "11/06/2026 12:51",
+    "generated_full": "11/06/2026 14:53",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -37,7 +37,7 @@ const D = {
     }
   },
   "global_pct": 90,
-  "delta_global": 1,
+  "delta_global": 0,
   "chantiers": [
     {
       "code": "A",
