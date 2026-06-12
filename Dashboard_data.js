@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 11/06/2026 22:19 -- MEMNM-2026
+// 12/06/2026 06:13 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-06-11",
-    "generated_full": "11/06/2026 22:19",
+    "generated": "2026-06-12",
+    "generated_full": "12/06/2026 06:13",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -104,7 +104,7 @@ const D = {
     "actif": 369,
     "draft": 0,
     "archive": 56,
-    "majVersion": "Inventaire v12 . 11 Jun 2026",
+    "majVersion": "Inventaire v12 . 12 Jun 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -152,16 +152,17 @@ const D = {
     },
     {
       "nom": "Partie III (Ch.7-12)",
-      "courant": 86,
+      "courant": 151,
       "cible": 195,
       "source": "confirme"
     },
     {
       "nom": "Partie IV (Ch.13-15)",
-      "courant": 42,
+      "courant": 101,
       "cible": 80,
-      "detail": "Ch13=13 Ch14=6 Ch15=20 (total cfg=42)",
-      "source": "confirme"
+      "detail": "Ch13=26 Ch14=45 Ch15=30 (total cfg=101)",
+      "source": "confirme",
+      "alert": "overshoot"
     },
     {
       "nom": "Conclusion",
@@ -566,7 +567,7 @@ const D = {
     "10_Social_Listening": 120,
     "_ARCHIVE": 90,
     "__total__": 576,
-    "__date__": "2026-06-11"
+    "__date__": "2026-06-12"
   },
   "delta_fichiers": 128,
   "chapitres": [
