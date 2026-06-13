@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 12/06/2026 23:15 -- MEMNM-2026
+// 13/06/2026 07:34 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-06-12",
-    "generated_full": "12/06/2026 23:15",
+    "generated": "2026-06-13",
+    "generated_full": "13/06/2026 07:34",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,8 +36,8 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 89,
-  "delta_global": -1,
+  "global_pct": 90,
+  "delta_global": 1,
   "chantiers": [
     {
       "code": "A",
@@ -47,7 +47,7 @@ const D = {
     {
       "code": "B",
       "nom": "Qualitatif EAKA/SAWT",
-      "pct": 95
+      "pct": 100
     },
     {
       "code": "C",
@@ -104,7 +104,7 @@ const D = {
     "actif": 369,
     "draft": 0,
     "archive": 56,
-    "majVersion": "Inventaire v12 . 12 Jun 2026",
+    "majVersion": "Inventaire v12 . 13 Jun 2026",
     "dossiers": {
       "00_Manuscrit_Master": 9,
       "01_Drafts_Chapitres": 19,
@@ -556,8 +556,8 @@ const D = {
   "filesystem": {
     "00_Manuscrit_Master": 32,
     "01_Drafts_Chapitres": 26,
-    "02_Livrables_DEC030": 10,
-    "03_Pilotage_Inventaire": 48,
+    "02_Livrables_DEC030": 12,
+    "03_Pilotage_Inventaire": 51,
     "04_Bibliographie": 8,
     "05_Diagnostic_Audit": 3,
     "06_Enquete_Pilote": 57,
@@ -566,10 +566,10 @@ const D = {
     "09_Scripts": 51,
     "10_Social_Listening": 120,
     "_ARCHIVE": 90,
-    "__total__": 553,
-    "__date__": "2026-06-12"
+    "__total__": 558,
+    "__date__": "2026-06-13"
   },
-  "delta_fichiers": 105,
+  "delta_fichiers": 110,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
