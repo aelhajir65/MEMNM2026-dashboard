@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 13/06/2026 07:15 -- MEMNM-2026
+// 13/06/2026 07:26 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-13",
-    "generated_full": "13/06/2026 07:15",
+    "generated_full": "13/06/2026 07:26",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,13 +36,13 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 90,
-  "delta_global": 0,
+  "global_pct": 92,
+  "delta_global": 2,
   "chantiers": [
     {
       "code": "A",
       "nom": "Relance quantitative",
-      "pct": 85
+      "pct": 100
     },
     {
       "code": "B",
@@ -77,7 +77,7 @@ const D = {
     {
       "code": "H",
       "nom": "Finalisation",
-      "pct": 35
+      "pct": 72
     }
   ],
   "collecte": {
@@ -557,7 +557,7 @@ const D = {
     "00_Manuscrit_Master": 34,
     "01_Drafts_Chapitres": 26,
     "02_Livrables_DEC030": 12,
-    "03_Pilotage_Inventaire": 51,
+    "03_Pilotage_Inventaire": 53,
     "04_Bibliographie": 8,
     "05_Diagnostic_Audit": 3,
     "06_Enquete_Pilote": 57,
@@ -566,10 +566,10 @@ const D = {
     "09_Scripts": 51,
     "10_Social_Listening": 120,
     "_ARCHIVE": 90,
-    "__total__": 560,
+    "__total__": 562,
     "__date__": "2026-06-13"
   },
-  "delta_fichiers": 112,
+  "delta_fichiers": 114,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
