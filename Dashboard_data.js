@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 14/06/2026 18:28 -- MEMNM-2026
+// 15/06/2026 11:48 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-06-14",
-    "generated_full": "14/06/2026 18:28",
+    "generated": "2026-06-15",
+    "generated_full": "15/06/2026 11:48",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -99,29 +99,8 @@ const D = {
     "label": "Corrections residuelles Ch.14"
   },
   "inventaire": {
-    "fichiers": 448,
-    "canon": 0,
-    "actif": 369,
-    "draft": 0,
-    "archive": 56,
-    "majVersion": "Inventaire v12 . 14 Jun 2026",
-    "dossiers": {
-      "00_Manuscrit_Master": 9,
-      "01_Drafts_Chapitres": 19,
-      "02_Livrables_DEC030": 6,
-      "03_Pilotage_Inventaire": 19,
-      "04_Bibliographie": 3,
-      "05_Diagnostic_Audit": 2,
-      "06_Enquete_Pilote": 28,
-      "07_Annexes_1-16": 28,
-      "08_SSOT_V7.2": 61,
-      "09_Scripts": 15,
-      "10_Social_Listening": 100,
-      "Racine": 4,
-      "_ARCHIVE": 65,
-      "_Dashboard_Public": 7,
-      "TOTAL": 366
-    }
+    "fichiers": 354,
+    "majVersion": "Inventaire v12 (non lu)"
   },
   "pages": [
     {
@@ -166,8 +145,9 @@ const D = {
     },
     {
       "nom": "Conclusion",
-      "courant": 14,
-      "cible": 16
+      "courant": 26,
+      "cible": 16,
+      "alert": "overshoot"
     },
     {
       "nom": "Bibliographie",
@@ -554,7 +534,7 @@ const D = {
     ]
   },
   "filesystem": {
-    "00_Manuscrit_Master": 36,
+    "00_Manuscrit_Master": 35,
     "01_Drafts_Chapitres": 26,
     "02_Livrables_DEC030": 12,
     "03_Pilotage_Inventaire": 61,
@@ -563,13 +543,13 @@ const D = {
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 47,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 52,
+    "09_Scripts": 53,
     "10_Social_Listening": 120,
-    "_ARCHIVE": 90,
-    "__total__": 573,
-    "__date__": "2026-06-14"
+    "_ARCHIVE": 196,
+    "__total__": 679,
+    "__date__": "2026-06-15"
   },
-  "delta_fichiers": 125,
+  "delta_fichiers": 325,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
