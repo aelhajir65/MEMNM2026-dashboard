@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 16/06/2026 16:47 -- MEMNM-2026
+// 16/06/2026 16:59 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-16",
-    "generated_full": "16/06/2026 16:47",
+    "generated_full": "16/06/2026 16:59",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -37,7 +37,7 @@ const D = {
     }
   },
   "global_pct": 96,
-  "delta_global": 1,
+  "delta_global": 0,
   "chantiers": [
     {
       "code": "A",
@@ -342,7 +342,7 @@ const D = {
       "ch": "D",
       "d": "Juil. 2026",
       "risk": "Élevé",
-      "stat": "📅 Planifié",
+      "stat": "✅ Terminé · Scoring IMN-I/IMN-O N=625 · EFA KMO=0,839 · SEM CFI_A=0,256 · k-means ARI=0,791 · Ch.11v4+Ch.12v4 · Release B → MEMNM-2029 · acté 14/06/2026",
       "retard": false
     },
     {
@@ -351,7 +351,7 @@ const D = {
       "ch": "B+C",
       "d": "Août 2026",
       "risk": "Moyen",
-      "stat": "📅 Planifié",
+      "stat": "✅ Terminé · 23/23 EAKA/SAWT · D1 23/23 validées [AZ] 14/06/2026 · ρ=0,75 (N=23) · Chantier B = 100%",
       "retard": false
     },
     {
@@ -360,7 +360,7 @@ const D = {
       "ch": "F",
       "d": "Oct. 2026",
       "risk": "Élevé",
-      "stat": "📅 Planifié",
+      "stat": "✅ Terminé · Ch.7v4 · Ch.8v4 · Ch.9v3.1 · Ch.10v3 · Ch.11v4 · Ch.12v4 · tous _FIXED Georgia=100% · 16/06/2026",
       "retard": false
     },
     {
@@ -378,7 +378,7 @@ const D = {
       "ch": "H",
       "d": "Nov. 2026",
       "risk": "Élevé",
-      "stat": "📅 Planifié",
+      "stat": "🟡 En cours — PROCHAINE ACTION P1 · Ch.1→Ch.15 _FIXED ✅ · Assemblage 4 Parties restant · Transmission Prof. Saaf",
       "retard": false
     },
     {
