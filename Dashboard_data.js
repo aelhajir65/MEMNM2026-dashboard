@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 16/06/2026 16:59 -- MEMNM-2026
+// 18/06/2026 09:55 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
-    "generated": "2026-06-16",
-    "generated_full": "16/06/2026 16:59",
+    "generated": "2026-06-18",
+    "generated_full": "18/06/2026 09:55",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -378,7 +378,7 @@ const D = {
       "ch": "H",
       "d": "Nov. 2026",
       "risk": "Élevé",
-      "stat": "🟡 En cours — PROCHAINE ACTION P1 · Ch.1→Ch.15 _FIXED ✅ · Assemblage 4 Parties restant · Transmission Prof. Saaf",
+      "stat": "🟡 En cours — J44 lecture personnelle [AZ] en cours (imprimés) · assemblage 4 Parties = étape suivante · transmission Prof. Saaf après",
       "retard": false
     },
     {
@@ -547,7 +547,7 @@ const D = {
     "10_Social_Listening": 122,
     "_ARCHIVE": 235,
     "__total__": 723,
-    "__date__": "2026-06-16"
+    "__date__": "2026-06-18"
   },
   "delta_fichiers": 369,
   "chapitres": [
