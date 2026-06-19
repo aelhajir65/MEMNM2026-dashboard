@@ -1,12 +1,12 @@
 // Dashboard_data.js -- genere automatiquement par Dashboard_refresh.py v2
-// 19/06/2026 15:24 -- MEMNM-2026
+// 19/06/2026 15:32 -- MEMNM-2026
 // NE PAS EDITER MANUELLEMENT -- relancer Dashboard_refresh.py
 
 const D = {
   "meta": {
     "version": "v2",
     "generated": "2026-06-19",
-    "generated_full": "19/06/2026 15:24",
+    "generated_full": "19/06/2026 15:32",
     "source": "Dashboard_refresh.py v2",
     "poly_ia": {
       "convention_nommage": "MEMNM2026_[MODULE]_[OBJET]_V[x.y]_[DATE].ext",
@@ -36,7 +36,7 @@ const D = {
       "date_acte": "2026-05-04"
     }
   },
-  "global_pct": 96,
+  "global_pct": 97,
   "delta_global": 0,
   "chantiers": [
     {
@@ -99,8 +99,30 @@ const D = {
     "label": "Corrections residuelles Ch.14"
   },
   "inventaire": {
-    "fichiers": 354,
-    "majVersion": "Inventaire v12 (non lu)"
+    "fichiers": 500,
+    "canon": 0,
+    "actif": 390,
+    "draft": 0,
+    "archive": 57,
+    "majVersion": "Inventaire v16 . 19 Jun 2026",
+    "dossiers": {
+      "00_Manuscrit_Master": 9,
+      "01_Drafts_Chapitres": 19,
+      "02_Livrables_DEC030": 6,
+      "03_Pilotage_Inventaire": 19,
+      "04_Bibliographie": 3,
+      "05_Diagnostic_Audit": 2,
+      "06_Enquete_Pilote": 28,
+      "07_Annexes_1-16": 28,
+      "08_SSOT_V7.2": 61,
+      "09_Scripts": 15,
+      "10_Social_Listening": 100,
+      "Racine": 4,
+      "_ARCHIVE": 65,
+      "_Dashboard_Public": 7,
+      "11_Chapitres": 5,
+      "TOTAL": 371
+    }
   },
   "pages": [
     {
@@ -543,13 +565,13 @@ const D = {
     "06_Enquete_Pilote": 57,
     "07_Annexes_1-16": 47,
     "08_SSOT_V7.2": 61,
-    "09_Scripts": 53,
+    "09_Scripts": 54,
     "10_Social_Listening": 122,
     "_ARCHIVE": 235,
-    "__total__": 727,
+    "__total__": 728,
     "__date__": "2026-06-19"
   },
-  "delta_fichiers": 373,
+  "delta_fichiers": 228,
   "chapitres": [
     {
       "etat": "Finalisé (fn ✅)",
@@ -576,22 +598,22 @@ const D = {
     {
       "axe": "Redaction Partie III",
       "h": 180,
-      "done": 0.92
+      "done": 0.95
     },
     {
       "axe": "Redaction Partie IV",
       "h": 220,
-      "done": 0.97
+      "done": 0.98
     },
     {
       "axe": "Finalisation & assemblage",
       "h": 120,
-      "done": 0.2
+      "done": 0.95
     },
     {
       "axe": "Collecte quantitative",
       "h": 200,
-      "done": 0.85
+      "done": 1.0
     },
     {
       "axe": "Collecte qualitative EAKA/SAWT",
@@ -601,22 +623,22 @@ const D = {
     {
       "axe": "Social Listening EAC",
       "h": 180,
-      "done": 0.97
+      "done": 1.0
     },
     {
       "axe": "Stats & Scoring IMN",
       "h": 80,
-      "done": 0.35
+      "done": 0.96
     },
     {
       "axe": "Bibliographie & documentation",
       "h": 60,
-      "done": 0.75
+      "done": 0.8
     },
     {
       "axe": "Pilotage & coordination",
       "h": 45,
-      "done": 0.65
+      "done": 0.75
     }
   ],
   "evolution": {
@@ -657,5 +679,5 @@ const D = {
     ]
   },
   "h_total": 1555,
-  "h_done": 1310
+  "h_done": 1500
 };
